@@ -66,7 +66,7 @@
           </ul>
         </div>
         <div class="col-md-4 text-center">
-          <a href="#" class="logo"><img src="images/logohj.png" alt="New Providence"></a>
+          <a href="#" class="logo"><img src="images/logohj.png" alt="Hejotekno"></a>
         </div>
         <div class="col-md-4">
           <ul class="right">
@@ -85,7 +85,7 @@
         <div class="col-md-8 col-md-offset-2 text-center">
           <h1 class="wow fadeInUp">Lorem Ipsum?</h1>
           <p class="wow fadeInUp" data-wow-delay=".2s">Lorem Ipsum bla bla bla ini project anjaw website buat client gatuh, awokawok bismilah huhahuha ini buat hejotekno/ toptekno apalah mungkin nanti si watch videonya ganti ama yg mereka.</p>
-          <a href="https://vimeo.com/74220509" class="btn btn-lg video-btn wow fadeInUp lightbox mfp-iframe" data-wow-delay=".3s" data-effect="mfp-zoom-in"><i class="fa fa-play"></i> Watch Video</a>
+          <a href="https://www.youtube.com/watch?v=SUqqTbDnHSs" class="btn btn-lg video-btn wow fadeInUp lightbox mfp-iframe" data-wow-delay=".3s" data-effect="mfp-zoom-in"><i class="fa fa-play"></i> Watch Video</a>
         </div>
 
         <!-- iPhone -->  
@@ -100,9 +100,9 @@
       <div class="row">
         <div class="col-md-6 feature-item">
           <div class="feature wow fadeInUp">
-            <div class="f-icon"><i class="lnr lnr-lock"></i></div>
+            <div class="f-icon"><i class="lnr lnr-leaf"></i></div>
             <div class="f-description">
-              <h4>Real-time all the time</h4>
+              <h4>Sustainibility</h4>
               <p>Thus much I thought proper to tell you in relation to yourself, and to the trust I reposed in you.
 
 Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door.</p>
@@ -219,7 +219,7 @@ This I have produced as a scantling of Jack’s great eloquence and the force of
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <p class="subtitle">New<span class="f-w-400">Providence</span></p>
+          <p class="subtitle">Hejo<span class="f-w-400">Tekno</span></p>
           <h2>Get it to your smartphone</h2>
           <form action="">
             <div class="form-group">
@@ -428,7 +428,6 @@ This I have produced as a scantling of Jack’s great eloquence and the force of
         <div class="col-md-3">
           <img class="logo" src="images/logohj.png" alt="">
           <p>It was some time before he obtained any answer, and the reply, when made, was unpropitious.</p>
-          <a href="#" class="app_download"><img src="images/app-store-download.png" alt=""></a>
           <ul class="socials">
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -471,7 +470,7 @@ This I have produced as a scantling of Jack’s great eloquence and the force of
       <div class="row">
         <div class="col-md-6 text-left">
           <div class="more-info">
-            For more freebies visit: <a href="http://getcraftwork.com">http://getcraftwork.com</a>
+            Projek TTI Hejotekno - ProKon
           </div>
         </div>
         <div class="col-md-6 text-right">
