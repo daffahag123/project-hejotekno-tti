@@ -32,7 +32,6 @@
       <div id="slide_out_menu">
         <a href="#" class="menu-close"><i class="fa fa-times"></i></a>
         <!-- <div class="logo"><img src="images/logohj-white.png" alt=""></div> -->
-        <!-- FIKRY DISINI -->
         <ul>
           <li><a href="#">About</a></li>
           <li><a href="#">Products</a></li>
