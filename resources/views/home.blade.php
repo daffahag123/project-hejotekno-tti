@@ -33,7 +33,7 @@
         <a href="#" class="menu-close"><i class="fa fa-times"></i></a>
         <!-- <div class="logo"><img src="images/logohj-white.png" alt=""></div> -->
         <ul>
-          <li><a href="#">About</a></li>
+          <li><a href="/about">About</a></li>
           <li><a href="#">Products</a></li>
           <li><a href="#">Kamisama</a></li>
           <li><a href="#">Help</a></li>
@@ -60,7 +60,7 @@
       <div class="row">
         <div class="col-md-4">
           <ul class="left">
-            <li><a href="#">About</a></li>
+            <li><a href="/about">About</a></li>
             <li><a href="#">Products</a></li>
             <li><a href="#">Kamisama</a></li>
           </ul>
