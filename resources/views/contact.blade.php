@@ -37,7 +37,7 @@
           <li><a href="#">Products</a></li>
           <li><a href="#">Kamisama</a></li>
           <li><a href="#">Help</a></li>
-          <li><a href="/contact">Contacts</a></li>
+          <li><a href="#">Contacts</a></li>
           <li><a href="#" class="btn btn-green">Log In</a></li>
         </ul>
 
@@ -71,7 +71,7 @@
         <div class="col-md-4">
           <ul class="right">
               <li><a href="#" class="help">Help</a></li>
-              <li><a href="/contact">Contacts</a></li>
+              <li><a href="#">Contacts</a></li>
               <li><a href="#" class="btn btn-green">Log In</a></li>
           </ul>
         </div>
@@ -79,16 +79,60 @@
     </div>
   </header><!-- //Main Nav -->
 
-  <section id="header">
+  <section id="contact">
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
-          <h1 class="wow fadeInUp">About Us</h1>
-          <p class="wow fadeInUp" data-wow-delay=".2s">Blablbabla adalah sebuah perusahaan yang bergerak dibidang bla bla bla dan blablabla. Blablabla bla bla blablabla blabbla. Blbla bla blablabla blabbla bla bla blablabla blabbla.</p>
+          <br><br><br><br><br><br>
+          <h1 class="wow fadeInUp">Contact Us</h1>
+          <p class="wow fadeInUp" data-wow-delay=".2s">Have a question or need assistance? Contact us using the form below.</p>
+          <br><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form id="contact-form" method="post" action="contact.php" role="form">
+            <div class="messages"></div>
+            <div class="controls">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="form_name">Name *</label>
+                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your name *" required="required" data-error="Name is required.">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="form_email">Email *</label>
+                    <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="form_message">Message *</label>
+                    <textarea id="form_message" name="message" class="form-control" placeholder="Message for us *" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-12 text-center">
+                  <br><br>
+                  <input type="submit" class="btn btn-green" value="Send message">
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </section><!-- //Header -->
+  </section><!-- //Contact -->
+
+
 
   <footer id="footer">
     <div class="container footer-container">

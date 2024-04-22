@@ -37,7 +37,7 @@
           <li><a href="#">Products</a></li>
           <li><a href="#">Kamisama</a></li>
           <li><a href="#">Help</a></li>
-          <li><a href="#">Contacts</a></li>
+          <li><a href="/contact">Contacts</a></li>
           <li><a href="#" class="btn btn-green">Log In</a></li>
         </ul>
 
@@ -71,7 +71,7 @@
         <div class="col-md-4">
           <ul class="right">
               <li><a href="#" class="help">Help</a></li>
-              <li><a href="#">Contacts</a></li>
+              <li><a href="/contact">Contacts</a></li>
               <li><a href="#" class="btn btn-green">Log In</a></li>
           </ul>
         </div>
