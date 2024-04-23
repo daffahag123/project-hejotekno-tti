@@ -89,7 +89,7 @@
 
   <header id="main-nav">
     <div class="container">
-      <a id="navigation" href="#"><i class="fa fa-bars"></i></a>
+      <!-- <a id="navigation" href="#"><i class="fa fa-bars"></i></a>
       <div id="slide_out_menu">
         <a href="#" class="menu-close"><i class="fa fa-times"></i></a>
         <ul>
@@ -110,7 +110,7 @@
             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
           </ul>
         </div>
-      </div>
+      </div> -->
       <div class="row">
         <div class="col-md-4">
           <ul class="left">
@@ -136,8 +136,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
-          <h1 class="wow fadeInUp">Lorem Ipsum?</h1>
-          <p class="wow fadeInUp" data-wow-delay=".2s">Lorem Ipsum bla bla bla ini project anjaw website buat client gatuh, awokawok bismilah huhahuha ini buat hejotekno/ toptekno apalah mungkin nanti si watch videonya ganti ama yg mereka.</p>
+          <h1 class="wow fadeInUp">PT. Top Tekno Indo</h1>
+          <p class="wow fadeInUp" data-wow-delay=".2s">“ Sebuah Gerakan Pasti Membutuhkan Energi, Untuk Mendorong Misi Kami Dalam Memperluas Kemanfaatan Maka Bisnis Menjadi Energinya “
+<br>
+~ Betha Kurniawan (CEO Hejotekno) ~.</p>
           <a href="https://www.youtube.com/watch?v=SUqqTbDnHSs" class="btn btn-lg video-btn wow fadeInUp lightbox mfp-iframe" data-wow-delay=".3s" data-effect="mfp-zoom-in"><i class="fa fa-play"></i> Watch Video</a>
         </div>
       </div>
@@ -150,21 +152,17 @@
           <div class="feature wow fadeInUp">
             <div class="f-icon"><i class="lnr lnr-leaf"></i></div>
             <div class="f-description">
-              <h4>Sustainibility</h4>
-              <p>Thus much I thought proper to tell you in relation to yourself, and to the trust I reposed in you.
-
-Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door.</p>
+              <h4>Environment Friendly</h4>
+              <p>Memprioritaskan produk teknologi ramah lingkungan dan memiliki integrasi antara teknologi modern dan ilmu lingkungan untuk mengurangi dampak negatif dari aktivitas manusia.</p>
             </div>
           </div>
         </div>
         <div class="col-md-6 feature-item">
           <div class="feature wow fadeInUp" data-wow-delay=".1s">
-            <div class="f-icon"><i class="lnr lnr-clock"></i></div>
+            <div class="f-icon"><i class="lnr lnr-smile"></i></div>
             <div class="f-description">
-              <h4>Adopt without any obstacles</h4>
-              <p>This sounded a very good reason, and Alice was quite pleased to know it. 'I never thought of that before!' she said.
-
-This I have produced as a scantling of Jack’s great eloquence and the force of his reasoning upon such abstruse matters.</p>
+              <h4>Our Vision</h4>
+              <p>Tujuan kami adalah untuk menemukan dan mengembangkan cara-cara untuk memenuhi kebutuhan manusia tanpa menyebabkan kerusakan lingkungan atau mengurangi sumber daya alam.</p>
             </div>
           </div>
         </div>
@@ -177,22 +175,22 @@ This I have produced as a scantling of Jack’s great eloquence and the force of
       <div class="row">
         <div class="col-md-5 col-md-offset-7">
           <h2>
-            Your day is protected
+            StungtaXPindad
           </h2>
           <p>
-            There have not been any since we have lived here, said my mother. 
+            Compact & Portable.
             <br><br>
-            We thought - Mr. Copperfield thought - it was quite a large rookery; but the nests were very old ones, and the birds have deserted them a long while.
+            Smokeless Incinerator adalah sebuah produk solusi Karya Anak Bangsa untuk penanganan masalah sampah dengan menggunakan produk teknologi ramah lingkungan dan hemat energi.
           </p>
           <div class="btns-container">
-            <a href="#" class="btn btn-green">Try to hack us <i class="fa fa-arrow-right"></i></a>
-            <a href="#" class="btn">Learn More</a>
+            <a href="#" class="btn btn-green">See more<i class="fa fa-arrow-right"></i></a>
+            <!-- <a href="#" class="btn">Learn More</a> -->
           </div>
         </div>
 
         <div class="iphone-showcase wow fadeInLeft">
           <div class="device">
-            <img src="images/iphone-feature.png" alt="">
+            <img src="images/product-stungta.png" alt="stungtaxpindad">
           </div>
         </div><!-- //iPhone Showcase -->
 
@@ -205,38 +203,43 @@ This I have produced as a scantling of Jack’s great eloquence and the force of
     <div class="container">
       <div class="row">
         <div class="col-md-5">
-          <h2>We are almost everywhere</h2>
+          <h2>HETRIC</h2>
           <p>
-            Now the races of these two have been for some ages utterly extinct, and besides to discourse any further of them would not be at all to my purpose.
+            Ramah Lingkungan & Hemat Energi.
             <br><br>
-            Thus much I thought proper to tell you in relation to yourself, and to the trust I reposed in you.
+            Hejotekno Electric Tricycle adalah sebuah produk solusi Karya Anak Bangsa untuk penanganan distribusi sampah dengan menggunakan produk teknologi ramah lingkungan dan hemat energi.
           </p>
+          <br><br>
+          <div class="btns-container">
+            <a href="#" class="btn btn-green">See more‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ‎ ‎ <i class="fa fa-arrow-right"></i></a>
+            <!-- <a href="#" class="btn">Learn More</a> -->
+          </div>
           <div class="partners">
-            <div class="title">Partners</div>
-            <ul>
+            <div class="title"> </div>
+            <!-- <ul>
               <li><a href="#"><img src="images/dropbox.png" alt="Dropbox"></a></li>
               <li><a href="#"><img src="images/evernote.png" alt="Dropbox"></a></li>
-            </ul>
+            </ul> -->
           </div>
         </div>
 
         <div class="map-showcase wow fadeInRight">
           <div class="map">
-            <img src="images/map.png" alt="">
+            <img src="images/product-hetric.png" alt="">
           </div>
         </div><!-- //Map Showcase -->
 
       </div>
     </div>
   </section><!-- //Map Feature -->
-
+<!-- 
   <section id="iphone-screens">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h2>Beautiful Interface</h2>
+          <h2>KAMISAMA</h2>
           <hr>
-          <p class="subtitle">Landing Screen</p>
+          <p class="subtitle">Kawasan Minimasi Sampah Mandiri</p>
         </div>
       </div>
     </div>
@@ -468,7 +471,7 @@ This I have produced as a scantling of Jack’s great eloquence and the force of
       </div>
       </div>
     </div>
-  </section><!-- //Subscribe -->
+  </section>//Subscribe -->
 
   <footer id="footer">
     <div class="container footer-container">
