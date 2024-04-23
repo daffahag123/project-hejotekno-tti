@@ -89,7 +89,7 @@
 
   <header id="main-nav">
     <div class="container">
-      <!-- <a id="navigation" href="#"><i class="fa fa-bars"></i></a>
+      <a id="navigation" href="#"><i class="fa fa-bars"></i></a>
       <div id="slide_out_menu">
         <a href="#" class="menu-close"><i class="fa fa-times"></i></a>
         <ul>
@@ -110,7 +110,7 @@
             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
           </ul>
         </div>
-      </div> -->
+      </div>
       <div class="row">
         <div class="col-md-4">
           <ul class="left">
@@ -232,7 +232,7 @@
       </div>
     </div>
   </section><!-- //Map Feature -->
-<!-- 
+
   <section id="iphone-screens">
     <div class="container">
       <div class="row">
@@ -264,7 +264,7 @@
       </ul>
     </div>
     
-  </section><!-- //iPhone Screens -->
+  </section>//iPhone Screens
 
   <section id="ready-to-buy">
     <div class="container">
@@ -471,7 +471,7 @@
       </div>
       </div>
     </div>
-  </section>//Subscribe -->
+  </section>//Subscribe
 
   <footer id="footer">
     <div class="container footer-container">
