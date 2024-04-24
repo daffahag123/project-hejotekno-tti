@@ -1063,6 +1063,9 @@ input[type="email"]:focus {
 Responsive Styles
 *****************************************************/
 @media only screen and (max-width: 992px) {
+  #header-about .left-side {
+    margin-left: 0px;
+  }
   /*** Main Nav ***/
   #main-nav .col-md-4:first-child,
   #main-nav .col-md-4:last-child {
@@ -1206,6 +1209,9 @@ Responsive Styles
 }
 
 @media only screen and (max-width: 768px) {
+  #header-about .left-side {
+    margin-left: 0px;
+  }
   /*** iPhone Screens ***/
   #iphone-screens {
     padding: 120px 0 460px;
@@ -1237,6 +1243,9 @@ Responsive Styles
 }
 
 @media only screen and (max-width: 575px) {
+  #header-about .left-side {
+    margin-left: 0px;
+  }
   input[type="text"],
   input[type="email"] {
     padding: 16px 26px;
