@@ -477,7 +477,7 @@
       <div style="text-align: justify" ,class="row">
         <div class="col-md-3">
           <img class="logo" src="images/logohj.png" alt="">
-          <p>It was some time before he obtained any answer, and the reply, when made, was unpropitious.</p>
+          <p>PT. TOP TEKNO INDO</p>
           <ul class="socials">
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -490,16 +490,15 @@
         <div class="col-md-2 col-md-offset-3 col-sm-4 col-xs-6 footer-links">
           <ul>
             <li><p class="title">Learn More</p></li>
-            <li><a href="#">How it works?</a></li>
-            <li><a href="#">Meeting tools</a></li>
-            <li><a href="#">Live striming</a></li>
-            <li><a href="#">Contat method</a></li>
+            <li><a href="#">StungtaXPindad</a></li>
+            <li><a href="#">Hetric</a></li>
+            <li><a href="#">Kamisama</a></li>
           </ul>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 footer-links">
           <ul>
             <li><p class="title">About Us</p></li>
-            <li><a href="#">About us</a></li>
+            <li><a href="#">Our Journey us</a></li>
             <li><a href="#">Features</a></li>
             <li><a href="#">Privacy police</a></li>
             <li><a href="#">Terms & Conditions</a></li>
@@ -510,7 +509,7 @@
             <li><p class="title">Support</p></li>
             <li><a href="#">F.A.Q.</a></li>
             <li><a href="#">Contact us</a></li>
-            <li><a href="#">Live chat</a></li>
+            <li><a href="#">Visit Us</a></li>
             <li><a href="#">Phone call</a></li>
           </ul>
         </div>
