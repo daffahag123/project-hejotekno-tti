@@ -167,6 +167,7 @@
   
   <section id="catalog">
     <br><br><br><br><br><br><br><br>
+  <h1>
   <div class="container">
     <div class="row">
       <div class="col-md-6">

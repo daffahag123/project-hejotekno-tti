@@ -136,10 +136,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
-          <h1 class="wow fadeInUp">PT. Top Tekno Indo</h1>
-          <p class="wow fadeInUp" data-wow-delay=".2s">“ Sebuah Gerakan Pasti Membutuhkan Energi, Untuk Mendorong Misi Kami Dalam Memperluas Kemanfaatan Maka Bisnis Menjadi Energinya “
-<br>
-~ Betha Kurniawan (CEO Hejotekno) ~.</p>
+          <h1 class="wow fadeInUp"><b>Teknologi Ramah Lingkungan untuk Masa Depan Berkelanjutan</b></h1><br>
+          <p style="text-align: center" ,class="wow fadeInUp" data-wow-delay=".2s">PT. TOP TEKNO INDO</p>
           <a href="https://www.youtube.com/watch?v=SUqqTbDnHSs" class="btn btn-lg video-btn wow fadeInUp lightbox mfp-iframe" data-wow-delay=".3s" data-effect="mfp-zoom-in"><i class="fa fa-play"></i> Watch Video</a>
         </div>
       </div>
@@ -153,7 +151,7 @@
             <div class="f-icon"><i class="lnr lnr-leaf"></i></div>
             <div class="f-description">
               <h4>Environment Friendly</h4>
-              <p>Memprioritaskan produk teknologi ramah lingkungan dan memiliki integrasi antara teknologi modern dan ilmu lingkungan untuk mengurangi dampak negatif dari aktivitas manusia.</p>
+              <p>Project Inovasi yang mengedepankan produk teknologi ramah lingkungan yang memiliki integrasi antara teknologi modern dengan ilmu lingkungan untuk mengurangi dampak negatif dari aktifitas manusia.</p>
             </div>
           </div>
         </div>
@@ -161,8 +159,8 @@
           <div class="feature wow fadeInUp" data-wow-delay=".1s">
             <div class="f-icon"><i class="lnr lnr-smile"></i></div>
             <div class="f-description">
-              <h4>Our Vision</h4>
-              <p>Tujuan kami adalah untuk menemukan dan mengembangkan cara-cara untuk memenuhi kebutuhan manusia tanpa menyebabkan kerusakan lingkungan atau mengurangi sumber daya alam.</p>
+              <h4>Our Goals</h4>
+              <p>Bertujuan untuk menemukan dan mengembangkan cara-cara untuk menyediakan kebutuhan bagi manusia tanpa menyebabkan kerusakan lingkungan.</p>
             </div>
           </div>
         </div>
@@ -177,7 +175,7 @@
           <h2>
             StungtaXPindad
           </h2>
-          <p>
+          <p style="text-align: justify"> 
             Compact & Portable.
             <br><br>
             Smokeless Incinerator adalah sebuah produk solusi Karya Anak Bangsa untuk penanganan masalah sampah dengan menggunakan produk teknologi ramah lingkungan dan hemat energi.
@@ -204,7 +202,7 @@
       <div class="row">
         <div class="col-md-5">
           <h2>HETRIC</h2>
-          <p>
+          <p style="text-align: justify">
             Ramah Lingkungan & Hemat Energi.
             <br><br>
             Hejotekno Electric Tricycle adalah sebuah produk solusi Karya Anak Bangsa untuk penanganan distribusi sampah dengan menggunakan produk teknologi ramah lingkungan dan hemat energi.
@@ -247,26 +245,26 @@
     <div class="images-showcase wow fadeIn">
       <ul class="images-list">
         <li>
-          <img src="images/interface/img-1.png" alt="">
+          <img src="images/interface/4.png" alt="">
         </li>
         <li>
-          <img src="images/interface/img-2.png" alt="">
+          <img src="images/interface/1.png" alt="">
         </li>
         <li class="main-img">
-          <img src="images/interface/main-img.png" alt="">
+          <img src="images/interface/3.png" alt="">
         </li>
         <li>
-          <img src="images/interface/img-3.png" alt="">
+          <img src="images/interface/2.png" alt="">
         </li>
         <li>
-          <img src="images/interface/img-4.png" alt="">
+          <img src="images/interface/5.png" alt="">
         </li>
       </ul>
     </div>
-    
-  </section>//iPhone Screens
+  </section>
+  <!-- //iPhone Screens -->
 
-  <section id="ready-to-buy">
+  <!-- <section id="ready-to-buy">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -291,9 +289,9 @@
         </div>
       </div>
     </div>
-  </section><!-- //Ready to Buy -->
+  </section>//Ready to Buy -->
 
-  <section id="customers">
+  <!-- <section id="customers">
     <div class="container">
       <div class="row">
         <div id="testimonials-slider">
@@ -302,7 +300,7 @@
             <div class="carousel slide" data-ride="carousel" id="quote-carousel">
               <!-- Carousel Slides / Quotes -->
               <div class="carousel-inner text-center">
-                <!-- Bottom Carousel Indicators -->
+                <!-- Bottom Carousel Indicators 
                 <ol class="carousel-indicators">
                     <li data-target="#quote-carousel" data-slide-to="0" class="active">
                       <img class="img-responsive " src="images/user1.jpg" alt="">
@@ -317,7 +315,7 @@
                 </ol>
                 
 
-                  <!-- Quote 1 -->
+                  <!-- Quote 1 
                   <div class="item active">
                     <div class="testimonial">
                       <h3>New Providence is the great UI kit</h3>
@@ -332,7 +330,7 @@
                       <p class="customer-name">Cameron Downman</p>
                     </div>
                   </div>
-                  <!-- Quote 2 -->
+                  <!-- Quote 2 
                   <div class="item">
                     <div class="testimonial">
                       <h3>New Providence is the great UI kit</h3>
@@ -347,7 +345,7 @@
                       <p class="customer-name">Cameron Downman</p>
                     </div>
                   </div>
-                  <!-- Quote 3 -->
+                  <!-- Quote 3 
                   <div class="item">
                     <div class="testimonial">
                       <h3>New Providence is the great UI kit</h3>
@@ -364,7 +362,7 @@
                   </div>
               </div>
 
-              <!-- Carousel Buttons Next/Prev -->
+              <!-- Carousel Buttons Next/Prev 
               <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
               <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
             </div>
@@ -372,9 +370,9 @@
         </div>
       </div>
     </div>
-  </section><!-- //Customers -->
+  </section>//Customers -->
 
-  <section id="plan">
+  <!-- <section id="plan">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -382,7 +380,7 @@
           <p class="subtitle">You are</p>
           <div class="toggle-container cf">
             <div class="switch-toggles">
-              <div class="individual">Individual</div> <!-- active -->
+              <div class="individual">Individual</div> <!-- active 
               <div class="company">Company</div>
             </div>
           </div>
@@ -419,7 +417,7 @@
                 <a href="" class="btn btn-green">Make me a pro</a>                
               </div>
             </div>
-          </div><!-- /Individual -->
+          </div><!-- /Individual 
 
           <div class="company cf">
             <div class="price-table highlighted">
@@ -448,13 +446,13 @@
                 <a href="" class="btn btn-green">Make me a pro</a>                
               </div>
             </div>
-          </div><!-- /Company -->
+          </div><!-- /Company 
         </div>
       </div>
     </div>
-  </section><!-- //Plan -->
+  </section>//Plan -->
 
-  <section id="subscribe">
+  <!-- <section id="subscribe">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -471,11 +469,12 @@
       </div>
       </div>
     </div>
-  </section>//Subscribe
+  </section> -->
+  <!-- //Subscribe -->
 
   <footer id="footer">
     <div class="container footer-container">
-      <div class="row">
+      <div style="text-align: justify" ,class="row">
         <div class="col-md-3">
           <img class="logo" src="images/logohj.png" alt="">
           <p>It was some time before he obtained any answer, and the reply, when made, was unpropitious.</p>
