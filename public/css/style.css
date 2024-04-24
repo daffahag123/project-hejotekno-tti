@@ -438,6 +438,35 @@ input[type="email"]:focus {
   margin-right: 15px;
 }
 
+/* Header About */
+#header-about {
+  padding: 200px 0 510px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../images/bannergif.gif"), linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0.5));
+  background-repeat: no-repeat;
+  background-position: left 0, right 0; /* Adjust the background-position here */
+  background-size: 50% 100%, 50% 100%; /* Adjust the background-size here */
+}
+
+#header-about {
+  display: flex;
+}
+
+#header-about .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#header-about .container .row {
+  width: 50%;
+}
+
+#header-about .container .row .col-md-8 {
+  margin-left: auto;
+}
+
 /*****************************************************
 *** Features ***
 *****************************************************/

@@ -151,7 +151,7 @@
             <div class="f-icon"><i class="lnr lnr-leaf"></i></div>
             <div class="f-description">
               <h4>Environment Friendly</h4>
-              <p>Project Inovasi yang mengedepankan produk teknologi ramah lingkungan yang memiliki integrasi antara teknologi modern dengan ilmu lingkungan untuk mengurangi dampak negatif dari aktifitas manusia.</p>
+              <p style="text-align: justify">Project Inovasi yang mengedepankan produk teknologi ramah lingkungan yang memiliki integrasi antara teknologi modern dengan ilmu lingkungan untuk mengurangi dampak negatif dari aktifitas manusia.</p>
             </div>
           </div>
         </div>
@@ -160,7 +160,7 @@
             <div class="f-icon"><i class="lnr lnr-smile"></i></div>
             <div class="f-description">
               <h4>Our Goals</h4>
-              <p>Bertujuan untuk menemukan dan mengembangkan cara-cara untuk menyediakan kebutuhan bagi manusia tanpa menyebabkan kerusakan lingkungan.</p>
+              <p style="text-align: justify">Bertujuan untuk menemukan dan mengembangkan cara-cara untuk menyediakan kebutuhan bagi manusia tanpa menyebabkan kerusakan lingkungan.</p>
             </div>
           </div>
         </div>
@@ -260,7 +260,9 @@
           <img src="images/interface/5.png" alt="">
         </li>
       </ul>
+      
     </div>
+    
   </section>
   <!-- //iPhone Screens -->
 
@@ -298,7 +300,7 @@
           <div class="col-md-6 col-md-offset-3 text-center">
 
             <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-              <!-- Carousel Slides / Quotes -->
+              <!-- Carousel Slides / Quotes 
               <div class="carousel-inner text-center">
                 <!-- Bottom Carousel Indicators 
                 <ol class="carousel-indicators">
@@ -474,7 +476,7 @@
 
   <footer id="footer">
     <div class="container footer-container">
-      <div style="text-align: justify" ,class="row">
+      <div class="row">
         <div class="col-md-3">
           <img class="logo" src="images/logohj.png" alt="">
           <p>PT. TOP TEKNO INDO</p>
