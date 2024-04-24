@@ -133,20 +133,31 @@
   <section id="header-about">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center">
-          <h1 class="wow fadeInUp">About Us</h1>
-          <p class="wow fadeInUp" data-wow-delay=".2s">Blablbabla adalah sebuah perusahaan yang bergerak dibidang bla bla bla dan blablabla. Blablabla bla bla blablabla blabbla. Blbla bla blablabla blabbla bla bla blablabla blabbla.</p>
+        <div class="col-md-6">
+          <div class="right-side">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="left-side">
+            <h1 style="text-align: center" ,class="wow fadeInUp">Our Story</h1><br>
+            <p style="text-align: justify", class="wow fadeInUp" data-wow-delay=".2s">PT TOP TEKNO INDO (TTI) adalah anak perusahaan Hejotekno yang berfokus pada pengelolaan operasional. Mereka berpusat di Jalan Kapur, Cibuntu, Kecamatan Bandung Kulon, Kota Bandung, Jawa Barat, dan aktif dalam manajemen sampah di Kota Banjar, Jawa Barat. Kolaborasi dengan Pemerintah Kota Banjar dalam program Kawasan Minimasi Sampah Mandiri (Kamisama) menjadi bagian penting dari kontribusi mereka.
+
+<br><br>PT Top Tekno Indo memiliki komitmen untuk meningkatkan partisipasi masyarakat dalam pengelolaan sampah yang optimal. Fokus utama perusahaan adalah pada teknologi pengolahan sampah yang ramah lingkungan, dengan tujuan mengurangi dampak negatif pencemaran lingkungan akibat sampah.
+
+<br><br>Salah satu inovasi unggulan dari PT Top Tekno Indo adalah Smokeless Incinerator (STUNGTA), mesin pemusnah sampah tanpa asap. Mesin ini diharapkan dapat mengurangi dampak pencemaran lingkungan dan meningkatkan kualitas lingkungan hidup di Kota Banjar. Selain itu, produk lainnya yang diperkenalkan adalah Hejotekno Electric Tricycle (HETRIC), digunakan untuk distribusi sampah. Dengan berbagai inovasi ini, PT Top Tekno Indo berkontribusi dalam mengelola sampah secara efisien dan ramah lingkungan..</p>
+          </div>
         </div>
       </div>
     </div>
-  </section><!-- //Header -->
+  </section>
+
 
   <footer id="footer">
     <div class="container footer-container">
       <div class="row">
         <div class="col-md-3">
           <img class="logo" src="images/logohj.png" alt="">
-          <p>It was some time before he obtained any answer, and the reply, when made, was unpropitious.</p>
+          <p>PT. TOP TEKNO INDO</p>
           <ul class="socials">
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -159,16 +170,15 @@
         <div class="col-md-2 col-md-offset-3 col-sm-4 col-xs-6 footer-links">
           <ul>
             <li><p class="title">Learn More</p></li>
-            <li><a href="#">How it works?</a></li>
-            <li><a href="#">Meeting tools</a></li>
-            <li><a href="#">Live striming</a></li>
-            <li><a href="#">Contat method</a></li>
+            <li><a href="#">StungtaXPindad</a></li>
+            <li><a href="#">Hetric</a></li>
+            <li><a href="#">Kamisama</a></li>
           </ul>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 footer-links">
           <ul>
             <li><p class="title">About Us</p></li>
-            <li><a href="#">About us</a></li>
+            <li><a href="#">Our Journey us</a></li>
             <li><a href="#">Features</a></li>
             <li><a href="#">Privacy police</a></li>
             <li><a href="#">Terms & Conditions</a></li>
@@ -179,7 +189,7 @@
             <li><p class="title">Support</p></li>
             <li><a href="#">F.A.Q.</a></li>
             <li><a href="#">Contact us</a></li>
-            <li><a href="#">Live chat</a></li>
+            <li><a href="#">Visit Us</a></li>
             <li><a href="#">Phone call</a></li>
           </ul>
         </div>

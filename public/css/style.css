@@ -440,16 +440,22 @@ input[type="email"]:focus {
 
 /* Header About */
 #header-about {
+  display: flex;
   padding: 200px 0 510px;
   position: relative;
   overflow: hidden;
-  background-image: url("../images/bannergif.gif"), linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0.5));
+  background-image: url("../images/ht-banner.gif"), linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255,255,255,0.5));
   background-repeat: no-repeat;
   background-position: left 0, right 0; /* Adjust the background-position here */
-  background-size: 50% 100%, 50% 100%; /* Adjust the background-size here */
+  background-size: 50% 75%, 50% 75%; /* Adjust the background-size here */
 }
 
-#header-about {
+#header-about .left-side {
+  margin-left: 150px;
+}
+
+
+/* #header-about {
   display: flex;
 }
 
@@ -465,7 +471,7 @@ input[type="email"]:focus {
 
 #header-about .container .row .col-md-8 {
   margin-left: auto;
-}
+} */
 
 /*****************************************************
 *** Features ***
@@ -1180,6 +1186,22 @@ Responsive Styles
   .copyright-container .text-right {
     text-align: left;
     margin-top: 22px;
+  }
+  #header-about {
+    background-size: 110% 100%, 110% 100%; /* Menyesuaikan ukuran latar belakang untuk mode mobile */
+    padding: 100px 0; /* Menyesuaikan padding untuk mode mobile */
+  }
+
+  #header-about .container .row {
+    flex-direction: column-reverse; /* Menukar urutan kolom pada mode mobile */
+  }
+  
+  #header-about .container .row .col-md-6 {
+    width: 100%; /* Mengubah lebar kolom menjadi 100% pada mode mobile */
+  }
+  
+  #header-about .container .row .col-md-6 .left-side {
+    padding: 0 20px; /* Menambahkan padding kiri dan kanan pada teks untuk mode mobile */
   }
 }
 
