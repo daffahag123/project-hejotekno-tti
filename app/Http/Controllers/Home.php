@@ -4,21 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProductsController extends Controller
+class Home extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view("products");
+        //
     }
 
-    public function detail()
-    {
-        return view("productDetail");
-    }
-    
     /**
      * Show the form for creating a new resource.
      */

@@ -127,7 +127,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <a href="/productDetail">
+        <a href="/products">
           <div class="product">
             <img src="https://hejotech.co.id/wp-content/uploads/2023/11/111111BG-2023-2048x1152.jpg" alt="Product 1">
             <div class="product-info">Product 1</div>

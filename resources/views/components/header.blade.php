@@ -5,7 +5,7 @@
         <a href="#" class="menu-close"><i class="fa fa-times"></i></a>
         <ul>
           <li><a href="/about">About</a></li>
-          <li><a href="#">Products</a></li>
+          <li><a href="/products">Products</a></li>
           <li><a href="#">Kamisama</a></li>
           <li><a href="/contact">Contact Us</a></li>
           <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
@@ -26,7 +26,7 @@
         <div class="col-md-4">
           <ul class="left">
             <li><a href="/about">About</a></li>
-            <li><a href="#">Products</a></li>
+            <li><a href="/products">Products</a></li>
             <li><a href="#">Kamisama</a></li>
           </ul>
         </div>
