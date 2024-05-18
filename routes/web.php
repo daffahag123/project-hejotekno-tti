@@ -17,3 +17,11 @@ Route::get('/products', function(){
 Route::get('/contact', function(){
     return view('contact');
 });
+
+Route::get('/dashboard/table', function(){
+    return view('admin.dashboard');
+});
+
+Route::get('/dashboard/typography', function(){
+    return view('admin.typography');
+});

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,19 +28,25 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* warna hitam dengan opacity 0.5 */
-      z-index: 9998; /* letakkan di bawah cart-overlay */
-      display: none; /* sembunyikan secara default */
+      background-color: rgba(0, 0, 0, 0.5);
+      /* warna hitam dengan opacity 0.5 */
+      z-index: 9998;
+      /* letakkan di bawah cart-overlay */
+      display: none;
+      /* sembunyikan secara default */
     }
+
     #cart-overlay {
       position: fixed;
       top: 0;
-      right: -300px; /* Start off-screen */
+      right: -300px;
+      /* Start off-screen */
       width: 300px;
       height: 100%;
       background-color: rgba(255, 255, 255, 1);
       z-index: 9999;
-      transition: right 0.3s ease; /* Add transition for smooth sliding */
+      transition: right 0.3s ease;
+      /* Add transition for smooth sliding */
     }
 
     #cart-content {
@@ -70,9 +77,36 @@
     #checkout-btn:hover {
       background-color: #555;
     }
+
+    #contact {
+      background-color: #f9f9f9;
+      /* Ganti warna background */
+      padding: 50px 0;
+      /* Tambahkan padding agar konten tidak terlalu dekat dengan border */
+      border: 1px solid #ddd;
+      /* Tambahkan border */
+      border-radius: 10px;
+      /* Membuat sudut menjadi rounded */
+    }
+
+    #map-container {
+      margin-bottom: 20px;
+      /* Tambahkan margin agar peta tidak terlalu dekat dengan border */
+    }
+
+    /* Posisikan Our Location di kiri */
+    #map-container {
+      order: 1;
+    }
+
+    /* Posisikan form contact di kanan */
+    #contact .col-md-6 {
+      order: 2;
+    }
   </style>
 
 </head>
+
 <body>
   <div id="cart-overlay">
     <div id="cart-content">
@@ -153,7 +187,7 @@
                     <div class="help-block with-errors"></div>
                   </div>
                 </div>
-                
+
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="form_email">Email *</label>
@@ -180,10 +214,19 @@
           </form>
         </div>
       </div>
+      <div class="row">
+      <br><br><br><br><br><br>
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <h2 class="wow fadeInUp">Our Location</h2>
+          <div id="map-container" style="height: 400px;">
+            <!-- Google Maps Embed Code -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.727949866227!2d107.56858507414148!3d-6.923089167760612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e52af0da3ff1%3A0x3faeba9f4127c0c7!2sHejotekno!5e0!3m2!1sen!2sid!4v1716016001434!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
     </div>
-  </section><!-- //Contact -->
-
-
+  </section>
 
   <footer id="footer">
     <div class="container footer-container">
@@ -202,7 +245,9 @@
         </div>
         <div class="col-md-2 col-md-offset-3 col-sm-4 col-xs-6 footer-links">
           <ul>
-            <li><p class="title">Learn More</p></li>
+            <li>
+              <p class="title">Learn More</p>
+            </li>
             <li><a href="#">How it works?</a></li>
             <li><a href="#">Meeting tools</a></li>
             <li><a href="#">Live striming</a></li>
@@ -211,7 +256,9 @@
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 footer-links">
           <ul>
-            <li><p class="title">About Us</p></li>
+            <li>
+              <p class="title">About Us</p>
+            </li>
             <li><a href="#">About us</a></li>
             <li><a href="#">Features</a></li>
             <li><a href="#">Privacy police</a></li>
@@ -220,7 +267,9 @@
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 footer-links">
           <ul>
-            <li><p class="title">Support</p></li>
+            <li>
+              <p class="title">Support</p>
+            </li>
             <li><a href="#">F.A.Q.</a></li>
             <li><a href="#">Contact us</a></li>
             <li><a href="#">Live chat</a></li>
@@ -241,31 +290,31 @@
   </footer>
 
   <script src="js/jquery-2.1.4.min.js"></script> <!-- jQuery -->
-  <script src="js/bootstrap.min.js"></script>  <!-- Bootstrap -->
-  <script src="js/wow.min.js"></script>  <!-- wow -->
-  <script src="js/jquery.magnific-popup.min.js"></script>  <!-- wow -->
-  <script src="js/main.js"></script>  <!-- Main Script -->
+  <script src="js/bootstrap.min.js"></script> <!-- Bootstrap -->
+  <script src="js/wow.min.js"></script> <!-- wow -->
+  <script src="js/jquery.magnific-popup.min.js"></script> <!-- wow -->
+  <script src="js/main.js"></script> <!-- Main Script -->
   <!-- script buat overlay cart -->
   <script>
-   $(document).ready(function() {
-  $('.fa-shopping-bag').click(function(e) {
-    e.preventDefault();
-    $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
-    $('.overlay').fadeIn(); // tampilkan overlay
-  });
+    $(document).ready(function() {
+      $('.fa-shopping-bag').click(function(e) {
+        e.preventDefault();
+        $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
+        $('.overlay').fadeIn(); // tampilkan overlay
+      });
 
-  $('.overlay').click(function(e) {
-    if (e.target === this) {
-      $('#cart-overlay, .overlay').css('right', '-300px');
-      $('.overlay').fadeOut(); // sembunyikan overlay
-    }
-  });
+      $('.overlay').click(function(e) {
+        if (e.target === this) {
+          $('#cart-overlay, .overlay').css('right', '-300px');
+          $('.overlay').fadeOut(); // sembunyikan overlay
+        }
+      });
 
-  $('#checkout-btn').click(function(e) {
-    window.location.href = 'checkout.html';
-  });
-});
-
+      $('#checkout-btn').click(function(e) {
+        window.location.href = 'checkout.html';
+      });
+    });
   </script>
 </body>
+
 </html>
