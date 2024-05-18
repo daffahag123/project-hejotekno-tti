@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,19 +28,25 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* warna hitam dengan opacity 0.5 */
-      z-index: 9998; /* letakkan di bawah cart-overlay */
-      display: none; /* sembunyikan secara default */
+      background-color: rgba(0, 0, 0, 0.5);
+      /* warna hitam dengan opacity 0.5 */
+      z-index: 9998;
+      /* letakkan di bawah cart-overlay */
+      display: none;
+      /* sembunyikan secara default */
     }
+
     #cart-overlay {
       position: fixed;
       top: 0;
-      right: -300px; /* Start off-screen */
+      right: -300px;
+      /* Start off-screen */
       width: 300px;
       height: 100%;
       background-color: rgba(255, 255, 255, 1);
       z-index: 9999;
-      transition: right 0.3s ease; /* Add transition for smooth sliding */
+      transition: right 0.3s ease;
+      /* Add transition for smooth sliding */
     }
 
     #cart-content {
@@ -70,9 +77,67 @@
     #checkout-btn:hover {
       background-color: #555;
     }
-  </style>
 
+    #productDetail {
+      padding: 40px 0;
+      background-color: #f9f9f9;
+    }
+
+    .product-image {
+      background-color: #000;
+      width: 100%;
+      height: 400px;
+    }
+
+    .product-details {
+      padding: 20px;
+    }
+
+    .product-name {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .product-price {
+      font-size: 20px;
+      color: #28a745;
+      margin: 10px 0;
+    }
+
+    .product-description {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .add-to-cart-btn {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #555;
+    }
+
+    .product-specs {
+      margin-top: 40px;
+    }
+
+    .product-specs h4 {
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .product-specs p {
+      margin: 0 0 10px;
+    }
+
+  </style>
 </head>
+
 <body>
   <div id="cart-overlay">
     <div id="cart-content">
@@ -85,28 +150,38 @@
   </div>
   <div class="overlay"></div>
 
-  
-    @include('components.header')
-  <section id="header-about">
+  @include('components.header')
+
+  <section id="productDetail">
     <div class="container">
+        <br><br><br><br><br>
       <div class="row">
         <div class="col-md-6">
-          <div class="right-side">
-              <br><br><br><br><br><br><br><br>
-              <h4 style="text-align: center; color: white" ,class="wow fadeInUp">Our Story</h4><br>
+          <div class="product-image">
+            <!-- Placeholder for product image -->
           </div>
         </div>
         <div class="col-md-6">
-          <div class="left-side">
-            <h1 style="text-align: center" ,class="wow fadeInUp">About Us</h1><br>
-            <p style="text-align: justify", class="wow fadeInUp" data-wow-delay=".2s">PT TOP TEKNO INDO (TTI) adalah anak perusahaan Hejotekno yang berfokus pada pengelolaan operasional. Mereka berpusat di Jalan Kapur, Cibuntu, Kecamatan Bandung Kulon, Kota Bandung, Jawa Barat, dan aktif dalam manajemen sampah di Kota Banjar, Jawa Barat. Kolaborasi dengan Pemerintah Kota Banjar dalam program Kawasan Minimasi Sampah Mandiri (Kamisama) menjadi bagian penting dari kontribusi mereka.
-
+          <div class="product-details">
+            <h2 class="product-name">Product Name</h2>
+            <p class="product-price">$99.99</p>
+            <p class="product-description">Short description of the product goes here. It provides a brief overview of the product features and benefits.</p>
+            <a href="#" class="add-to-cart-btn">Add to Cart</a>
           </div>
+        </div>
+      </div>
+      <div class="row product-specs">
+        <div class="col-md-12">
+          <h4>Product Specifications</h4>
+          <p>Specification 1: Value</p>
+          <p>Specification 2: Value</p>
+          <p>Specification 3: Value</p>
+          <h4>Detailed Description</h4>
+          <p>More detailed description of the product goes here. This section can include information about the product's history, manufacturing process, and other relevant details.</p>
         </div>
       </div>
     </div>
   </section>
-
 
   @include('components.footer')
 
@@ -118,7 +193,7 @@
   <!-- script buat overlay cart -->
   <script>
    $(document).ready(function() {
-  $('.fa-shopping-bag').click(function(e) {
+  $(inhopping-bag').click(function(e) {
     e.preventDefault();
     $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
     $('.overlay').fadeIn(); // tampilkan overlay
