@@ -85,50 +85,7 @@
   </div>
   <div class="overlay"></div>
 
-  <header id="main-nav">
-    <div class="container">
-      <a id="navigation" href="#"><i class="fa fa-bars"></i></a>
-      <div id="slide_out_menu">
-        <a href="#" class="menu-close"><i class="fa fa-times"></i></a>
-        <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Kamisama</a></li>
-          <li><a href="/contact">Contact Us</a></li>
-          <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
-        </ul>
-        <div class="slide_out_menu_footer">
-          <div class="more-info"></div>
-          <ul class="socials">
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <ul class="left">
-            <li><a href="/about">About</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Kamisama</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="/" class="logo"><img src="images/logohj.png" alt="Hejotekno"></a>
-        </div>
-        <div class="col-md-4">
-          <ul class="right">
-            <li><a href="/contact">Contact Us</a></li>
-            <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </header>
+  @include('components.header')
 
   <section id="contact">
     <div class="container">
@@ -183,62 +140,7 @@
     </div>
   </section><!-- //Contact -->
 
-
-
-  <footer id="footer">
-    <div class="container footer-container">
-      <div class="row">
-        <div class="col-md-3">
-          <img class="logo" src="images/logohj.png" alt="">
-          <p>It was some time before he obtained any answer, and the reply, when made, was unpropitious.</p>
-          <ul class="socials">
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-          </ul>
-        </div>
-        <div class="col-md-2 col-md-offset-3 col-sm-4 col-xs-6 footer-links">
-          <ul>
-            <li><p class="title">Learn More</p></li>
-            <li><a href="#">How it works?</a></li>
-            <li><a href="#">Meeting tools</a></li>
-            <li><a href="#">Live striming</a></li>
-            <li><a href="#">Contat method</a></li>
-          </ul>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 footer-links">
-          <ul>
-            <li><p class="title">About Us</p></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Privacy police</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-          </ul>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 footer-links">
-          <ul>
-            <li><p class="title">Support</p></li>
-            <li><a href="#">F.A.Q.</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">Live chat</a></li>
-            <li><a href="#">Phone call</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="container copyright-container">
-      <div class="row">
-        <div class="col-md-6 text-left">
-          <div class="more-info">
-            Projek TTI Hejotekno - ProKon
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  @include('components.footer')
 
   <script src="js/jquery-2.1.4.min.js"></script> <!-- jQuery -->
   <script src="js/bootstrap.min.js"></script>  <!-- Bootstrap -->
