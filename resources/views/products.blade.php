@@ -127,7 +127,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <a href="#">
+        <a href="/productDetail">
           <div class="product">
             <img src="https://hejotech.co.id/wp-content/uploads/2023/11/111111BG-2023-2048x1152.jpg" alt="Product 1">
             <div class="product-info">Product 1</div>
@@ -135,7 +135,7 @@
         </a>
       </div>
       <div class="col-md-6">
-        <a href="#">
+        <a href="/productDetail">
           <div class="product">
             <img src="https://hejotech.co.id/wp-content/uploads/2023/11/hectirc-2-2048x1152.jpg" alt="Product 2">
             <div class="product-info">Product 2</div>

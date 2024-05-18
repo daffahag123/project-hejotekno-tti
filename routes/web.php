@@ -14,6 +14,10 @@ Route::get('/products', function(){
     return view('products');
 });
 
+Route::get('/productDetail', function(){
+    return view('productDetail');
+});
+
 Route::get('/contact', function(){
     return view('contact');
 });
