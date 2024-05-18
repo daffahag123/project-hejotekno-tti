@@ -447,11 +447,15 @@ input[type="email"]:focus {
   background-image: url("../images/ht-banner.gif"), linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255,255,255,0.5));
   background-repeat: no-repeat;
   background-position: left 0, right 0; /* Adjust the background-position here */
-  background-size: 50% 75%, 50% 75%; /* Adjust the background-size here */
+  background-size: 50% 60%, 50% 60%; /* Adjust the background-size here */
 }
 
 #header-about .left-side {
   margin-left: 150px;
+}
+
+#header-about .right-side {
+  margin-right: 200px;
 }
 
 

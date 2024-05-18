@@ -135,16 +135,15 @@
       <div class="row">
         <div class="col-md-6">
           <div class="right-side">
+              <br><br><br><br><br><br><br><br>
+              <h4 style="text-align: center; color: white" ,class="wow fadeInUp">Our Story</h4><br>
           </div>
         </div>
         <div class="col-md-6">
           <div class="left-side">
-            <h1 style="text-align: center" ,class="wow fadeInUp">Our Story</h1><br>
+            <h1 style="text-align: center" ,class="wow fadeInUp">About Us</h1><br>
             <p style="text-align: justify", class="wow fadeInUp" data-wow-delay=".2s">PT TOP TEKNO INDO (TTI) adalah anak perusahaan Hejotekno yang berfokus pada pengelolaan operasional. Mereka berpusat di Jalan Kapur, Cibuntu, Kecamatan Bandung Kulon, Kota Bandung, Jawa Barat, dan aktif dalam manajemen sampah di Kota Banjar, Jawa Barat. Kolaborasi dengan Pemerintah Kota Banjar dalam program Kawasan Minimasi Sampah Mandiri (Kamisama) menjadi bagian penting dari kontribusi mereka.
 
-<br><br>PT Top Tekno Indo memiliki komitmen untuk meningkatkan partisipasi masyarakat dalam pengelolaan sampah yang optimal. Fokus utama perusahaan adalah pada teknologi pengolahan sampah yang ramah lingkungan, dengan tujuan mengurangi dampak negatif pencemaran lingkungan akibat sampah.
-
-<br><br>Salah satu inovasi unggulan dari PT Top Tekno Indo adalah Smokeless Incinerator (STUNGTA), mesin pemusnah sampah tanpa asap. Mesin ini diharapkan dapat mengurangi dampak pencemaran lingkungan dan meningkatkan kualitas lingkungan hidup di Kota Banjar. Selain itu, produk lainnya yang diperkenalkan adalah Hejotekno Electric Tricycle (HETRIC), digunakan untuk distribusi sampah. Dengan berbagai inovasi ini, PT Top Tekno Indo berkontribusi dalam mengelola sampah secara efisien dan ramah lingkungan..</p>
           </div>
         </div>
       </div>
