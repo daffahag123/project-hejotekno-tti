@@ -12,3 +12,17 @@ Route::get('/products', [ContactController::class, 'index']);
 Route::get('/contact', [ProductsController::class, 'index']);
 
 
+<<<<<<< HEAD
+=======
+Route::get('/products', function(){
+    return view('products');
+});
+
+Route::get('/productDetail', function(){
+    return view('productDetail');
+});
+
+Route::get('/contact', function(){
+    return view('contact');
+});
+>>>>>>> 586d905c44ba878f47150675d689378324e0a5cd
