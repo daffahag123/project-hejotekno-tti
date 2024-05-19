@@ -193,7 +193,7 @@
   <!-- script buat overlay cart -->
   <script>
    $(document).ready(function() {
-  $(inhopping-bag').click(function(e) {
+  $('.fa-shopping-bag').click(function(e) {
     e.preventDefault();
     $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
     $('.overlay').fadeIn(); // tampilkan overlay
