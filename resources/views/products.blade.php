@@ -5,14 +5,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HEJOTEKNO</title>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css"> <!-- Font Awesome -->
-  <link rel="stylesheet" href="css/normalize.css"> <!-- CSS reset -->
-  <link rel="stylesheet" href="css/bootstrap.min.css"> <!-- Bootstrap Grid -->
-  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-  <link rel="stylesheet" href="css/animate.min.css"><!-- Animate -->
-  <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-  <link rel="stylesheet" href="css/magnific-popup.css"> <!-- Resource style -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,700,500" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.min.css') }}"> <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ asset('css/normalize.css') }}"> <!-- CSS reset -->
+  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"> <!-- Bootstrap Grid -->
+  <link rel="stylesheet" href="{{ asset('https://cdn.linearicons.com/free/1.0.0/icon-font.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}"><!-- Animate -->
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}"> <!-- Resource style -->
+  <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}"> <!-- Resource style -->
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -80,11 +81,13 @@
     position: relative;
     overflow: hidden;
     margin-bottom: 0px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
     }
 
     .product img {
     width: 100%;
-    border: 1px solid #ddd;
     border-radius: 5px;
     }
 
@@ -92,16 +95,31 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 200%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
-    padding: 10px;
+    padding: 20px;
     box-sizing: border-box;
     transition: 0.3s;
+    opacity: 0;
+    transform: translateY(100%);
+    }
+
+    .product:hover {
+    transform: scale(1.05);
     }
 
     .product:hover .product-info {
-    bottom: -50px;
+    opacity: 1;
+    transform: translateY(0);
+    }
+
+    .product-info h4, .product-info p {
+    margin: 0;
+    }
+
+    .product-info h4 {
+    font-size: 16px;
     }
 
   </style>
@@ -120,40 +138,34 @@
   <div class="overlay"></div>
 
   @include('components.header')
-  
+
   <section id="catalog">
     <br><br><br><br><br><br><br><br>
-  <h1>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <a href="/productDetail">
-          <div class="product">
-            <img src="https://hejotech.co.id/wp-content/uploads/2023/11/111111BG-2023-2048x1152.jpg" alt="Product 1">
-            <div class="product-info">StungtaXPindad</div>
-          </div>
-        </a>
+    <div class="container">
+      <div class="row">
+        @foreach($products as $product)
+        <div class="col-md-6">
+          <a href="/product_detail/{{ $product->slug }}">
+            <div class="product">
+              <img src="{{ asset('images/products/' . $product->gambar) }}" alt="{{ $product->nama }}">
+              <div class="product-info">
+                <h4>{{ $product['nama_product'] }}</h4>
+              </div>
+            </div>
+          </a>
+        </div>
+        @endforeach
       </div>
-      <div class="col-md-6">
-        <a href="/productDetail">
-          <div class="product">
-            <img src="https://hejotech.co.id/wp-content/uploads/2023/11/hectirc-2-2048x1152.jpg" alt="Product 2">
-            <div class="product-info">Hetric</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+    </div>  
+  </section>
 
+  @include('components.footer')
 
-@include('components.footer')
-
-  <script src="js/jquery-2.1.4.min.js"></script> <!-- jQuery -->
-  <script src="js/bootstrap.min.js"></script>  <!-- Bootstrap -->
-  <script src="js/wow.min.js"></script>  <!-- wow -->
-  <script src="js/jquery.magnific-popup.min.js"></script>  <!-- wow -->
-  <script src="js/main.js"></script>  <!-- Main Script -->
+  <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script> <!-- jQuery -->
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>  <!-- Bootstrap -->
+  <script src="{{ asset('js/wow.min.js') }}"></script>  <!-- wow -->
+  <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>  <!-- magnific popup -->
+  <script src="{{ asset('js/main.js') }}"></script>  <!-- Main Script -->
   <!-- script buat overlay cart -->
   <script>
    $(document).ready(function() {

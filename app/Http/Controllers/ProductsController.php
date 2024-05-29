@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -11,12 +12,16 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view("products");
+        $products = Product::all();
+        return view('products', compact('products'));
+        // dd($products); // Tambahkan ini untuk debugging
     }
 
-    public function detail()
+    public function detail($slug)
     {
-        return view("productDetail");
+        $product = Product::where('slug', $slug)->firstOrFail();
+        return view("product_detail", compact('product'));
+        // dd($product);
     }
     
     /**

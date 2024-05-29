@@ -6,14 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HEJOTEKNO</title>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css"> <!-- Font Awesome -->
-  <link rel="stylesheet" href="css/normalize.css"> <!-- CSS reset -->
-  <link rel="stylesheet" href="css/bootstrap.min.css"> <!-- Bootstrap Grid -->
-  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-  <link rel="stylesheet" href="css/animate.min.css"><!-- Animate -->
-  <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-  <link rel="stylesheet" href="css/magnific-popup.css"> <!-- Resource style -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,700,500" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.min.css') }}"> <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ asset('css/normalize.css') }}"> <!-- CSS reset -->
+  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"> <!-- Bootstrap Grid -->
+  <link rel="stylesheet" href="{{ asset('https://cdn.linearicons.com/free/1.0.0/icon-font.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}"><!-- Animate -->
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}"> <!-- Resource style -->
+  <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}"> <!-- Resource style -->
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -86,7 +87,17 @@
     .product-image {
       background-color: #000;
       width: 100%;
-      height: 400px;
+      height: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* Pastikan gambar yang terlalu besar terpotong */
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      height: cover; /* Menjaga rasio aspek gambar */
     }
 
     .product-details {
@@ -96,12 +107,14 @@
     .product-name {
       font-size: 24px;
       font-weight: 700;
+      margin-top: 5px;
+      margin-bottom: 50px;
     }
 
     .product-price {
       font-size: 20px;
       color: #28a745;
-      margin: 10px 0;
+      margin: px 0;
     }
 
     .product-description {
@@ -123,6 +136,7 @@
     }
 
     .product-specs {
+      font-size: 16px;
       margin-top: 40px;
     }
 
@@ -131,8 +145,22 @@
       font-weight: 700;
     }
 
-    .product-specs p {
-      margin: 0 0 10px;
+    .product-specs ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .product-specs ul li {
+      color: #777;
+      padding: 2px;
+      font-weight: 400;
+    }
+
+    .product-specs ul li::before {
+      content: "• ";
+      color: #28a745;
+      font-weight: bold;
+      margin-right: 10px;
     }
 
   </style>
@@ -154,30 +182,38 @@
 
   <section id="productDetail">
     <div class="container">
-        <br><br><br><br><br>
+      <br><br><br><br><br>
       <div class="row">
         <div class="col-md-6">
           <div class="product-image">
-            <!-- Placeholder for product image -->
+            <img src="{{ asset('images/products/' . $product->gambar) }}" alt="{{ $product->name }}">
           </div>
         </div>
         <div class="col-md-6">
           <div class="product-details">
-            <h2 class="product-name">Product Name</h2>
-            <p class="product-price">$99.99</p>
-            <p class="product-description">Short description of the product goes here. It provides a brief overview of the product features and benefits.</p>
+            <h2 class="product-name">{{ $product->nama_product }}</h2>
+            <h3 class="product-name">{{ $product->deskripsi_nama }}</h3>
+            <p class="product-price">Rp. {{ number_format($product->harga, 0, ',', '.') }}</p>
+            @php
+            $paragraphs = explode("\n", trim($product->deskripsi));
+            $firstParagraph = $paragraphs[0];
+            @endphp
+            <p class="product-description">{{ $firstParagraph }}</p>
             <a href="#" class="add-to-cart-btn">Add to Cart</a>
           </div>
         </div>
       </div>
       <div class="row product-specs">
         <div class="col-md-12">
-          <h4>Product Specifications</h4>
-          <p>Specification 1: Value</p>
-          <p>Specification 2: Value</p>
-          <p>Specification 3: Value</p>
-          <h4>Detailed Description</h4>
-          <p>More detailed description of the product goes here. This section can include information about the product's history, manufacturing process, and other relevant details.</p>
+          <h4>Keunggulan</h4>
+          <ul>
+            @php
+            $keunggulan = explode("\n", trim($product->kelebihan));
+            @endphp
+            @foreach($keunggulan as $point)
+            <li>{{ $point }}</li>
+            @endforeach
+          </ul>
         </div>
       </div>
     </div>
@@ -185,11 +221,12 @@
 
   @include('components.footer')
 
-  <script src="js/jquery-2.1.4.min.js"></script> <!-- jQuery -->
-  <script src="js/bootstrap.min.js"></script>  <!-- Bootstrap -->
-  <script src="js/wow.min.js"></script>  <!-- wow -->
-  <script src="js/jquery.magnific-popup.min.js"></script>  <!-- wow -->
-  <script src="js/main.js"></script>  <!-- Main Script -->
+  <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script> <!-- jQuery -->
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>  <!-- Bootstrap -->
+  <script src="{{ asset('js/wow.min.js') }}"></script>  <!-- wow -->
+  <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>  <!-- magnific popup -->
+  <script src="{{ asset('js/main.js') }}"></script>  <!-- Main Script -->
+
   <!-- script buat overlay cart -->
   <script>
    $(document).ready(function() {
