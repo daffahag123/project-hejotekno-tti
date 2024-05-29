@@ -698,24 +698,25 @@
             <!-- SIGN UP -->
             <div class="col align-items-center flex-col sign-up">
                 <div class="form-wrapper align-items-center">
-                    <div class="form sign-up">
+                    <form class="form sign-up" action="/signup" method="POST">
+                        @csrf
                         <div class="input-group">
                             <i class='bx bxs-user'></i>
-                            <input type="text" placeholder="Username">
+                            <input type="text" name="username" placeholder="Username" required>
                         </div>
                         <div class="input-group">
                             <i class='bx bx-mail-send'></i>
-                            <input type="email" placeholder="Email">
+                            <input type="email" name="email" placeholder="Email" required>
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
-                            <input type="password" placeholder="Password">
+                            <input type="password" name="password" placeholder="Password" required>
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
-                            <input type="password" placeholder="Confirm password">
+                            <input type="password" name="confirm_password" placeholder="Confirm password" required>
                         </div>
-                        <button>
+                        <button type="submit">
                             Sign up
                         </button>
                         <p>
@@ -726,23 +727,24 @@
                                 Sign in here
                             </b>
                         </p>
-                    </div>
+                    </form>
                 </div>
             </div>
             <!-- END SIGN UP -->
             <!-- SIGN IN -->
             <div class="col align-items-center flex-col sign-in">
                 <div class="form-wrapper align-items-center">
-                    <div class="form sign-in">
+                    <form class="form sign-in" action="{{ route('login.auth') }}" method="POST">
+                        @csrf
                         <div class="input-group">
                             <i class='bx bxs-user'></i>
-                            <input type="text" placeholder="Username">
+                            <input type="text" name="email" placeholder="Email" required>
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
-                            <input type="password" placeholder="Password">
+                            <input type="password" name="password" placeholder="Password" required>
                         </div>
-                        <button>
+                        <button type="submit">
                             Sign in
                         </button>
                         <p>
@@ -758,9 +760,7 @@
                                 Sign up here
                             </b>
                         </p>
-                    </div>
-                </div>
-                <div class="form-wrapper">
+                    </form>
                 </div>
             </div>
             <!-- END SIGN IN -->
@@ -795,16 +795,26 @@
     </div>
 
     <script>
-        let container = document.getElementById('container')
+        let container = document.getElementById('container');
 
         function toggle() {
-            container.classList.toggle('sign-in')
-            container.classList.toggle('sign-up')
+            container.classList.toggle('sign-in');
+            container.classList.toggle('sign-up');
         }
 
         setTimeout(() => {
-            container.classList.add('sign-in')
-        }, 200)
+            container.classList.add('sign-in');
+        }, 200);
+
+        // Display success or error message as an alert
+        @if(session('success'))
+            alert("{{ session('success') }}");
+        @endif
+
+        @if(session('error'))
+            alert("{{ session('error') }}");
+        @endif
     </script>
 </body>
+
 </html>

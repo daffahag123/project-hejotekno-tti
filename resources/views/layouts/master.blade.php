@@ -147,6 +147,14 @@
                   </p>
                 </a>
               </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('logout') }}">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                      <p>
+                          <span class="d-lg-none d-md-block">Logout</span>
+                      </p>
+                  </a>
+              </li>
             </ul>
           </div>
         </div>
