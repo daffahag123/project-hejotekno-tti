@@ -31,7 +31,7 @@
           </ul>
         </div>
         <div class="col-md-4 text-center">
-          <a href="/" class="logo"><img src="images/logohj.png" alt="Hejotekno"></a>
+          <a href="/" class="logo"><img src="images/tti-ht.png" alt="Hejotekno"></a>
         </div>
         <div class="col-md-4">
           <ul class="right">
