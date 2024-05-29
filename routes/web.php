@@ -21,3 +21,6 @@ Route::get('/products', [ProductsController::class, 'index']);
 Route::get('/productDetail', [ProductsController::class, 'detail']);
 Route::get('/program', [ProgramController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/checkout', function(){
+    return view('checkout');
+});

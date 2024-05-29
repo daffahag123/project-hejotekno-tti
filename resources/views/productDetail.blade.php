@@ -207,7 +207,7 @@
   });
 
   $('#checkout-btn').click(function(e) {
-    window.location.href = 'checkout.html';
+    window.location.href = 'checkout';
   });
 });
 
