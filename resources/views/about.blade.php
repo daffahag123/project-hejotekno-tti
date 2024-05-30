@@ -21,7 +21,12 @@
   <![endif]-->
   <!-- overlay cart -->
   <style>
-    
+     .team-image {
+    width: 100%; /* Adjust the width as needed */
+    /* max-width: auto; Optional: to cap the maximum size */
+    height: auto; /* Maintain aspect ratio */
+    background-color: green;
+  }
     .overlay {
       position: fixed;
       top: 0;
@@ -42,7 +47,6 @@
       z-index: 9999;
       transition: right 0.3s ease; /* Add transition for smooth sliding */
     }
-
     #cart-content {
       position: absolute;
       top: 50%;
@@ -53,11 +57,9 @@
       background-color: #fff;
       color: #333;
     }
-
     #cart-content h3 {
       margin-top: 0;
     }
-
     #checkout-btn {
       display: block;
       margin-top: 20px;
@@ -67,12 +69,13 @@
       text-align: center;
       text-decoration: none;
     }
-
     #checkout-btn:hover {
       background-color: #555;
     }
+    .social-media-icons a {
+      padding: 20px;
+    }
   </style>
-
 </head>
 <body>
   <div id="cart-overlay">
@@ -86,22 +89,23 @@
   </div>
   <div class="overlay"></div>
 
-  
-    @include('components.header')
+  @include('components.header')
+
   <section id="header-about">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <div class="right-side">
-              <br><br><br><br><br><br><br><br>
-              <h4 style="text-align: center; color: white" ,class="wow fadeInUp">Our Story</h4><br>
+            <br><br><br><br><br><br><br><br>
+            <h4 style="text-align: center; color: white;" class="wow fadeInUp">Our Story</h4><br>
           </div>
         </div>
         <div class="col-md-6">
           <div class="left-side">
-            <h1 style="text-align: center" ,class="wow fadeInUp">About Us</h1><br>
-            <p style="text-align: justify", class="wow fadeInUp" data-wow-delay=".2s">PT TOP TEKNO INDO (TTI) adalah anak perusahaan Hejotekno yang berfokus pada pengelolaan operasional. Mereka berpusat di Jalan Kapur, Cibuntu, Kecamatan Bandung Kulon, Kota Bandung, Jawa Barat, dan aktif dalam manajemen sampah di Kota Banjar, Jawa Barat. Kolaborasi dengan Pemerintah Kota Banjar dalam program Kawasan Minimasi Sampah Mandiri (Kamisama) menjadi bagian penting dari kontribusi mereka.
-
+            <h1 style="text-align: center;" class="wow fadeInUp">About Us</h1><br>
+            <p style="text-align: justify;" class="wow fadeInUp" data-wow-delay=".2s">
+              PT TOP TEKNO INDO (TTI) adalah anak perusahaan Hejotekno yang berfokus pada pengelolaan operasional. Mereka berpusat di Jalan Kapur, Cibuntu, Kecamatan Bandung Kulon, Kota Bandung, Jawa Barat, dan aktif dalam manajemen sampah di Kota Banjar, Jawa Barat. Kolaborasi dengan Pemerintah Kota Banjar dalam program Kawasan Minimasi Sampah Mandiri (Kamisama) menjadi bagian penting dari kontribusi mereka.
+            </p>
           </div>
         </div>
       </div>
@@ -109,42 +113,16 @@
   </section>
 
   <section id="our-team">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h2>Our Team</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2>Our Team</h2>
+          <img src="images/team.png" alt="Our Team" class="team-image">
+          <br><br>
+        </div>
       </div>
     </div>
-    <div class="row justify-content-center"> <!-- Center the row -->
-      <div class="col-md-2 text-center">
-        <img src="team-member1.jpg" alt="Team Member 1" style="border-radius: 50%; width: 150px; height: 150px;">
-        <h4>John Doe</h4>
-        <p>CEO</p>
-      </div>
-      <div class="col-md-2 text-center">
-        <img src="team-member2.jpg" alt="Team Member 2" style="border-radius: 50%; width: 150px; height: 150px;">
-        <h4>Jane Smith</h4>
-        <p>COO</p>
-      </div>
-      <div class="col-md-2 text-center">
-        <img src="team-member3.jpg" alt="Team Member 3" style="border-radius: 50%; width: 150px; height: 150px;">
-        <h4>Michael Johnson</h4>
-        <p>CTO</p>
-      </div>
-      <div class="col-md-2 text-center">
-        <img src="team-member4.jpg" alt="Team Member 4" style="border-radius: 50%; width: 150px; height: 150px;">
-        <h4>Sarah Williams</h4>
-        <p>CMO</p>
-      </div>
-      <div class="col-md-2 text-center">
-        <img src="team-member5.jpg" alt="Team Member 5" style="border-radius: 50%; width: 150px; height: 150px;">
-        <h4>David Brown</h4>
-        <p>CFO</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <section id="social-media">
     <div class="container">
@@ -152,12 +130,19 @@
         <div class="col-md-12 text-center">
           <h2>For more information and updates, follow us on:</h2>
           <br>
-          <a href="https://www.instagram.com/your_instagram_handle" target="_blank"><i class="fa fa-instagram fa-3x" style="color: black;"></i></a>
-          <a href="https://www.youtube.com/your_youtube_channel" target="_blank"><i class="fa fa-youtube-play fa-3x" style="color: black;"></i></a>
+          <div class="social-media-icons">
+            <a href="https://www.instagram.com/hejotekno.indonesia/" target="_blank">
+              <i class="fa fa-instagram fa-3x" style="color: black;"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCiPGPJWy0f7eB4tuV0lCVsg/videos" target="_blank">
+              <i class="fa fa-youtube-play fa-3x" style="color: black;"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
   @include('components.footer')
 
   <script src="js/jquery-2.1.4.min.js"></script> <!-- jQuery -->
@@ -167,25 +152,24 @@
   <script src="js/main.js"></script>  <!-- Main Script -->
   <!-- script buat overlay cart -->
   <script>
-   $(document).ready(function() {
-  $('.fa-shopping-bag').click(function(e) {
-    e.preventDefault();
-    $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
-    $('.overlay').fadeIn(); // tampilkan overlay
-  });
+    $(document).ready(function() {
+      $('.fa-shopping-bag').click(function(e) {
+        e.preventDefault();
+        $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
+        $('.overlay').fadeIn(); // tampilkan overlay
+      });
 
-  $('.overlay').click(function(e) {
-    if (e.target === this) {
-      $('#cart-overlay, .overlay').css('right', '-300px');
-      $('.overlay').fadeOut(); // sembunyikan overlay
-    }
-  });
+      $('.overlay').click(function(e) {
+        if (e.target === this) {
+          $('#cart-overlay, .overlay').css('right', '-300px');
+          $('.overlay').fadeOut(); // sembunyikan overlay
+        }
+      });
 
-  $('#checkout-btn').click(function(e) {
-    window.location.href = 'checkout.html';
-  });
-});
-
+      $('#checkout-btn').click(function(e) {
+        window.location.href = 'checkout.html';
+      });
+    });
   </script>
 </body>
 </html>
