@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css"> <!-- Font Awesome -->
   <link rel="stylesheet" href="css/normalize.css"> <!-- CSS reset -->
   <link rel="stylesheet" href="css/bootstrap.min.css"> <!-- Bootstrap Grid -->
-  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/animate.min.css"><!-- Animate -->
   <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
   <link rel="stylesheet" href="css/magnific-popup.css"> <!-- Resource style -->
@@ -21,6 +21,7 @@
   <![endif]-->
   <!-- overlay cart -->
   <style>
+    
     .overlay {
       position: fixed;
       top: 0;
@@ -107,7 +108,56 @@
     </div>
   </section>
 
+  <section id="our-team">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>Our Team</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center"> <!-- Center the row -->
+      <div class="col-md-2 text-center">
+        <img src="team-member1.jpg" alt="Team Member 1" style="border-radius: 50%; width: 150px; height: 150px;">
+        <h4>John Doe</h4>
+        <p>CEO</p>
+      </div>
+      <div class="col-md-2 text-center">
+        <img src="team-member2.jpg" alt="Team Member 2" style="border-radius: 50%; width: 150px; height: 150px;">
+        <h4>Jane Smith</h4>
+        <p>COO</p>
+      </div>
+      <div class="col-md-2 text-center">
+        <img src="team-member3.jpg" alt="Team Member 3" style="border-radius: 50%; width: 150px; height: 150px;">
+        <h4>Michael Johnson</h4>
+        <p>CTO</p>
+      </div>
+      <div class="col-md-2 text-center">
+        <img src="team-member4.jpg" alt="Team Member 4" style="border-radius: 50%; width: 150px; height: 150px;">
+        <h4>Sarah Williams</h4>
+        <p>CMO</p>
+      </div>
+      <div class="col-md-2 text-center">
+        <img src="team-member5.jpg" alt="Team Member 5" style="border-radius: 50%; width: 150px; height: 150px;">
+        <h4>David Brown</h4>
+        <p>CFO</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+
+  <section id="social-media">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2>For more information and updates, follow us on:</h2>
+          <br>
+          <a href="https://www.instagram.com/your_instagram_handle" target="_blank"><i class="fa fa-instagram fa-3x" style="color: black;"></i></a>
+          <a href="https://www.youtube.com/your_youtube_channel" target="_blank"><i class="fa fa-youtube-play fa-3x" style="color: black;"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
   @include('components.footer')
 
   <script src="js/jquery-2.1.4.min.js"></script> <!-- jQuery -->
