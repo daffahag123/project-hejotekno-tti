@@ -11,7 +11,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $product = \App\Models\Product::all();
+        return view('admin.dashboard', compact('product'));
     }
     public function typo()
     {
