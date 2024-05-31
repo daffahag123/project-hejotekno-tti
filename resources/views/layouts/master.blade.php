@@ -162,13 +162,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('logout') }}">
-                  <i class="now-ui-icons ui-1_simple-remove"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Logout</span>
-                  </p>
-                </a>
+                  <a class="nav-link" href="#" onclick="confirmLogout()">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                      <p>
+                          <span class="d-lg-none d-md-block">Logout</span>
+                      </p>
+                  </a>
               </li>
+
             </ul>
           </div>
         </div>
@@ -225,6 +226,13 @@
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
+  <script>
+    function confirmLogout() {
+        if (confirm("Are you sure you want to logout?")) {
+            window.location.href = "{{ route('logout') }}";
+        }
+    }
+</script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
