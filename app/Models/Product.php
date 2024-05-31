@@ -9,9 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $table = 'product'; 
+    protected $table = 'products'; 
     protected $primaryKey = 'id_product'; 
     protected $fillable = [
         'slug', 'nama_product', 'deskripsi_nama', 'deskripsi', 'kelebihan', 'harga', 'stock', 'gambar'
     ];
+
+    public $timestamps = false; // Tidak menggunakan kolom timestamps
 }

@@ -18,14 +18,28 @@
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <style>
+    .sidebar-hidden {
+      width: 0;
+      transition: width 0.3s;
+      overflow: hidden;
+    }
+
+    .sidebar-hidden .sidebar-wrapper {
+      display: none;
+    }
+
+    .main-panel-expanded {
+      width: 100%;
+      margin-left: 0;
+      transition: margin-left 0.3s;
+    }
+  </style>
 </head>
 
 <body class="">
-  <div class="wrapper ">
+  <div class="wrapper">
     <div class="sidebar" data-color="orange">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
           CT
@@ -89,7 +103,7 @@
     </div>
     <div class="main-panel" id="main-panel">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+      <nav class="navbar navbar-expand-lg navbar-transparent bg-primary navbar-absolute">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <div class="navbar-toggle">
@@ -119,7 +133,7 @@
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
+                <a class="nav-link" href="#pablo" id="toggleSidebar">
                   <i class="now-ui-icons media-2_sound-wave"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Stats</span>
@@ -148,12 +162,12 @@
                 </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{ route('logout') }}">
-                      <i class="now-ui-icons ui-1_simple-remove"></i>
-                      <p>
-                          <span class="d-lg-none d-md-block">Logout</span>
-                      </p>
-                  </a>
+                <a class="nav-link" href="{{ route('logout') }}">
+                  <i class="now-ui-icons ui-1_simple-remove"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Logout</span>
+                  </p>
+                </a>
               </li>
             </ul>
           </div>
@@ -161,14 +175,11 @@
       </nav>
       <!-- End Navbar -->
 
-        
-
       <div class="panel-header panel-header-sm">
       </div>
       <div class="content">
       @yield('content')
       </div>
-
 
       <footer class="footer">
         <div class=" container-fluid ">
@@ -215,6 +226,18 @@
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var toggleButton = document.getElementById("toggleSidebar");
+      var sidebar = document.querySelector(".sidebar");
+      var mainPanel = document.getElementById("main-panel");
+
+      toggleButton.addEventListener("click", function () {
+        sidebar.classList.toggle("sidebar-hidden");
+        mainPanel.classList.toggle("main-panel-expanded");
+      });
+    });
+  </script>
 
   @yield('scripts')
 </body>
