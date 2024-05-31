@@ -1,4 +1,6 @@
 <header id="main-nav">
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div class="container">
     <a id="navigation" href="#"><i class="fa fa-bars"></i></a>
     <div id="slide_out_menu">
@@ -13,12 +15,12 @@
       <div class="slide_out_menu_footer">
         <div class="more-info"></div>
         <ul class="socials">
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="https://www.instagram.com/hejotekno.indonesia/"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCiPGPJWy0f7eB4tuV0lCVsg/videos"><i class="fa fa-youtube-play"></i></a></li>
+          <!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
           <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
           <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li> -->
         </ul>
       </div>
     </div>

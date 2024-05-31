@@ -71,7 +71,13 @@
       background-color: #555;
     }
 
-  
+    .logokamisama {
+      display: block;
+      margin: 0 auto; /* Center the image horizontally */
+      max-width: 50%; /* Adjust this value to make the image smaller */
+      height: auto;
+    }
+    
   </style>
 
 </head>
@@ -129,9 +135,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5 col-md-offset-7">
-          <h2>
+          <!-- <h2>
             StungtaXPindad
-          </h2>
+          </h2> -->
+          <img src="images/stungtaxpindadtext.png" alt="stungtaxpindad" width="400">
+          <br><br>
+
           <p style="text-align: justify"> 
             Compact & Portable.
             <br><br>
@@ -158,7 +167,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5">
-          <h2>HETRIC</h2>
+          <!-- <h2>HETRIC</h2> -->
+          <img src="images/hetrichitamlogo.png" alt="stungtaxpindad" width="400">
+          <br><br>
           <p style="text-align: justify">
             Ramah Lingkungan & Hemat Energi.
             <br><br>
@@ -192,9 +203,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h2>KAMISAMA</h2>
+          <div class="col-md-12 text-center">
+          <img src="images/kamisama.png" class="img-responsive wow fadeInUp logokamisama" data-wow-delay=".2s" alt="KAMISAMA Program">
+        </div>
           <hr>
-          <p class="subtitle">Kawasan Minimasi Sampah Mandiri</p>
+          <p class="subtitle">Program Kami</p>
         </div>
       </div>
     </div>
@@ -221,216 +234,10 @@
     </div>
     
   </section>
+  
   <!-- //iPhone Screens -->
 
-  <!-- <section id="ready-to-buy">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <p class="subtitle">Hejo<span class="f-w-400">Tekno</span></p>
-          <h2>Get it to your smartphone</h2>
-          <form action="">
-            <div class="form-group">
-              <input type="email" placeholder="Email here">
-              <a href="#" class="btn btn-green">Send Invite <i class="fa fa-arrow-right"></i></a>
-            </div>
-          </form>
-          <p class="subtitle">Or Download From</p>
-          <div class="download-btn">
-            <a href="#" class="btn btn-dark">
-              <i class="fa fa-apple"></i>
-              <span>
-                Dowload on the <br>
-                <b>App Store</b>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>//Ready to Buy -->
-
-  <!-- <section id="customers">
-    <div class="container">
-      <div class="row">
-        <div id="testimonials-slider">
-          <div class="col-md-6 col-md-offset-3 text-center">
-
-            <div class="carousel slide" data-ride="carousel" id="quote-carousel">
-              <!-- Carousel Slides / Quotes 
-              <div class="carousel-inner text-center">
-                <!-- Bottom Carousel Indicators 
-                <ol class="carousel-indicators">
-                    <li data-target="#quote-carousel" data-slide-to="0" class="active">
-                      <img class="img-responsive " src="images/user1.jpg" alt="">
-                    </li>
-                    <li data-target="#quote-carousel" data-slide-to="1">
-                      <img class="img-responsive" src="images/user2.jpg" alt="">
-                      <div class="shadow"></div>
-                    </li>
-                    <li data-target="#quote-carousel" data-slide-to="2">
-                      <img class="img-responsive" src="images/user3.jpg" alt="">
-                    </li>
-                </ol>
-                
-
-                  <!-- Quote 1 
-                  <div class="item active">
-                    <div class="testimonial">
-                      <h3>New Providence is the great UI kit</h3>
-                      <p>“Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door.”</p>
-                      <div class="star-rating">
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <p class="customer-name">Cameron Downman</p>
-                    </div>
-                  </div>
-                  <!-- Quote 2 
-                  <div class="item">
-                    <div class="testimonial">
-                      <h3>New Providence is the great UI kit</h3>
-                      <p>“Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door.”</p>
-                      <div class="star-rating">
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <p class="customer-name">Cameron Downman</p>
-                    </div>
-                  </div>
-                  <!-- Quote 3 
-                  <div class="item">
-                    <div class="testimonial">
-                      <h3>New Providence is the great UI kit</h3>
-                      <p>“Just then her head struck against the roof of the hall: in fact she was now more than nine feet high, and she at once took up the little golden key and hurried off to the garden door.”</p>
-                      <div class="star-rating">
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star gold-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div>
-                      <p class="customer-name">Cameron Downman</p>
-                    </div>
-                  </div>
-              </div>
-
-              <!-- Carousel Buttons Next/Prev 
-              <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-              <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>//Customers -->
-
-  <!-- <section id="plan">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Choose your perfect plan</h2>
-          <p class="subtitle">You are</p>
-          <div class="toggle-container cf">
-            <div class="switch-toggles">
-              <div class="individual">Individual</div> <!-- active 
-              <div class="company">Company</div>
-            </div>
-          </div>
-          <p>
-            Thus much I thought proper to tell you in relation to yourself, and to the trust I reposed in you.
-          </p>
-          <p class="info">Have a bigger team? <a href="#">Let‘s talk</a></p>
-        </div>
-        <div id="price_tables" class="col-md-7 col-md-offset-1">
-          <div class="individual cf">
-            <div class="price-table highlighted">
-              <div class="table-inner text-center">
-                <h3>Starter</h3>
-                <span class="price">Free</span>
-                <p class="phrase">Build your schedule<br> every day</p>
-                <ul class="feature-list">
-                  <li><i class="fa fa-check"></i> Unlimeted events</li>
-                  <li><i class="fa fa-check"></i> Connect Dropbox & Evernote</li>
-                  <li>&nbsp;</li>
-                </ul>
-                <a href="" class="btn btn-green">Get Started</a>                
-              </div>
-            </div>
-            <div class="price-table">
-              <div class="table-inner text-center">
-                <h3>Pro</h3>
-                <span class="price">$4.99</span>
-                <p class="phrase">Make your life<br> better</p>
-                <ul class="feature-list">
-                  <li><i class="fa fa-check"></i> Unlimeted events</li>
-                  <li><i class="fa fa-check"></i> Connect Dropbox & Evernote</li>
-                  <li><i class="fa fa-check"></i> Personal assistant</li>
-                </ul>
-                <a href="" class="btn btn-green">Make me a pro</a>                
-              </div>
-            </div>
-          </div><!-- /Individual 
-
-          <div class="company cf">
-            <div class="price-table highlighted">
-              <div class="table-inner text-center">
-                <h3>Starter</h3>
-                <span class="price">Free</span>
-                <p class="phrase">Build your schedule<br> every day</p>
-                <ul class="feature-list">
-                  <li><i class="fa fa-check"></i> Unlimeted events</li>
-                  <li><i class="fa fa-check"></i> Connect Dropbox & Evernote</li>
-                  <li>&nbsp;</li>
-                </ul>
-                <a href="" class="btn btn-green">Get Started</a>                
-              </div>
-            </div>
-            <div class="price-table">
-              <div class="table-inner text-center">
-                <h3>Pro</h3>
-                <span class="price">$4.99</span>
-                <p class="phrase">Make your life<br> better</p>
-                <ul class="feature-list">
-                  <li><i class="fa fa-check"></i> Unlimeted events</li>
-                  <li><i class="fa fa-check"></i> Connect Dropbox & Evernote</li>
-                  <li><i class="fa fa-check"></i> Personal assistant</li>
-                </ul>
-                <a href="" class="btn btn-green">Make me a pro</a>                
-              </div>
-            </div>
-          </div><!-- /Company 
-        </div>
-      </div>
-    </div>
-  </section>//Plan -->
-
-  <!-- <section id="subscribe">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <p class="subtitle"></p>
-          <h2>Subscribe our newsletters</h2>
-          <form action="">
-            <div class="form-group">
-              <input type="email" placeholder="Email here">
-              <a href="#" class="btn btn-green">Subscribe</a>
-            </div>
-          </form>
-          <p class="promise">We promise to never spam you.</p>
-        </div>
-      </div>
-      </div>
-    </div>
-  </section> -->
-  <!-- //Subscribe -->
-
+  
   @include('components.footer')
 
   <script src="js/jquery-2.1.4.min.js"></script> <!-- jQuery -->
