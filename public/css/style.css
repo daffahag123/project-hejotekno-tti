@@ -573,7 +573,7 @@ input[type="email"]:focus {
 *** iPhone Screens ***
 *****************************************************/
 #iphone-screens {
-  padding: 140px 0 800px;
+  padding: 140px 0 400px;
   position: relative;
   background-color: #f4f4f5;
   overflow: hidden;

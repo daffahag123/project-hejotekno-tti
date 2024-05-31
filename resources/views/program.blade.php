@@ -18,6 +18,14 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style>
+    .logokamisama {
+      display: block;
+      margin: 0 auto; /* Center the image horizontally */
+      max-width: 50%; /* Adjust this value to make the image smaller */
+      height: auto;
+    }
+  </style>
 </head>
 <body>
   @include('components.header')
@@ -27,8 +35,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="wow fadeInUp">KAMISAMA</h1>
-          <p class="wow fadeInUp" data-wow-delay=".2s">Kawasan Minimasi Sampah Mandiri</p>
+          <img src="images/kamisama.png" class="img-responsive wow fadeInUp logokamisama" data-wow-delay=".2s" alt="KAMISAMA Program">
         </div>
       </div>
       <br><br>
@@ -49,8 +56,32 @@
     </div>
   </section>
 
+  <section id="iphone-screens">
+  
+    <div class="images-showcase wow fadeIn">
+      <ul class="images-list">
+        <li>
+          <img src="images/interface/4.png" alt="">
+        </li>
+        <li>
+          <img src="images/interface/1.png" alt="">
+        </li>
+        <li class="main-img">
+          <img src="images/interface/5.png" alt="">
+        </li>
+        <li>
+          <img src="images/interface/2.png" alt="">
+        </li>
+        <li>
+          <img src="images/interface/3.png" alt="">
+        </li>
+      </ul>
+      
+    </div>
+    
+  </section>
   <section id="kamisama-features">
-  <br><br><br>
+    <br><br><br>
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -117,5 +148,6 @@
       });
     });
   </script>
+  
 </body>
 </html>

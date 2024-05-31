@@ -2,7 +2,7 @@
     <div class="container footer-container">
       <div class="row">
         <div class="col-md-3">
-          <img class="logo" src="images/logohj.png" alt="">
+          <img class="logo" src="images/HTHITAM.png" alt="" width="175">
           <p>PT. TOP TEKNO INDO</p>
           <ul class="socials">
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -24,19 +24,19 @@
         <div class="col-md-2 col-sm-4 col-xs-6 footer-links">
           <ul>
             <li><p class="title">About Us</p></li>
-            <li><a href="#">Our Journey us</a></li>
-            <li><a href="#">Features</a></li>
+            <li><a href="/about">Our Journey</a></li>
+            <!-- <li><a href="#">Features</a></li>
             <li><a href="#">Privacy police</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Terms & Conditions</a></li> -->
           </ul>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 footer-links">
           <ul>
             <li><p class="title">Support</p></li>
-            <li><a href="#">F.A.Q.</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="#">Visit Us</a></li>
-            <li><a href="#">Phone call</a></li>
+            <!-- <li><a href="#">F.A.Q.</a></li> -->
+            <li><a href="/contact">Contact us</a></li>
+            <!-- <li><a href="#">Visit Us</a></li>
+            <li><a href="#">Phone call</a></li> -->
           </ul>
         </div>
       </div>
