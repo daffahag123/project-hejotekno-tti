@@ -11,8 +11,9 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $admin = session('admin');
         $product = \App\Models\Product::all();
-        return view('admin.dashboard', compact('product'));
+        return view('admin.dashboard', compact('product','admin'));
     }
     public function typo()
     {
