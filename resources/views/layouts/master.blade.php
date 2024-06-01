@@ -45,18 +45,20 @@
             <i class="now-ui-icons users_single-02"></i>
         </a>
         <a href="" class="simple-text logo-normal">
-        {{$admin->name }}
+        @if(Session::has('admin'))
+            {{ Session::get('admin')->name }}
+        @endif
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li>
-            <a href="./dashboard.html">
-              <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
+        <li class="nav-item">
+            <a class="nav-link" href="">
+                <i class="now-ui-icons design_app"></i>
+                <p>Dashboard</p>
             </a>
-          </li>
-          <li>
+        </li>
+          <li>  
             <a href="./icons.html">
               <i class="now-ui-icons education_atom"></i>
               <p>Icons</p>
@@ -80,20 +82,26 @@
               <p>User Profile</p>
             </a>
           </li>
-          <li class="active ">
-            <a href="/dashboard/table">
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('admin')}}">
               <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
+              <p>Table Product</p>
             </a>
           </li>
-          <li>
-            <a href="/dashboard/typography">
+          <li class="nav-item">
+            <a class="nav-link" href="">
+              <i class="now-ui-icons design_bullet-list-67"></i>
+              <p>Table User</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">
               <i class="now-ui-icons text_caps-small"></i>
               <p>Typography</p>
             </a>
           </li>
-          <li class="active-pro">
-            <a href="./upgrade.html">
+          <li class="nav-item">
+            <a class="nav-link" href="./upgrade.html">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
               <p>Upgrade to PRO</p>
             </a>
@@ -149,7 +157,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Action</a>
                   <a class="dropdown-item" href="#">Something else here</a>
                 </div>
               </li>
@@ -232,10 +240,17 @@
             window.location.href = "{{ route('logout') }}";
         }
     }
-</script>
 
-  <script>
     document.addEventListener("DOMContentLoaded", function () {
+      var currentUrl = window.location.href;
+
+      var links = document.querySelectorAll('.nav-item a');
+      links.forEach(function(link) {
+        if (link.getAttribute('href') === currentUrl) {
+          link.parentElement.classList.add('active');
+        }
+      });
+
       var toggleButton = document.getElementById("toggleSidebar");
       var sidebar = document.querySelector(".sidebar");
       var mainPanel = document.getElementById("main-panel");
@@ -251,3 +266,4 @@
 </body>
 
 </html>
+
