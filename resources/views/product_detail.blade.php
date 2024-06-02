@@ -192,7 +192,6 @@
         <div class="col-md-6">
           <div class="product-details">
             <h2 class="product-name">{{ $product->nama_product }}</h2>
-            <h3 class="product-name">{{ $product->deskripsi_nama }}</h3>
             <p class="product-price">Rp. {{ number_format($product->harga, 0, ',', '.') }}</p>
             @php
             $paragraphs = explode("\n", trim($product->deskripsi));

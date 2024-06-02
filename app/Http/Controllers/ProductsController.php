@@ -22,6 +22,7 @@ class ProductsController extends Controller
         $product = Product::where('slug', $slug)->firstOrFail();
         return view("product_detail", compact('product'));
         // dd($product);
+        
     }
     
    // Show the form for creating a new product

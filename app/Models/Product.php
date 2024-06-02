@@ -16,4 +16,5 @@ class Product extends Model
     ];
 
     public $timestamps = false; // Tidak menggunakan kolom timestamps
+    
 }
