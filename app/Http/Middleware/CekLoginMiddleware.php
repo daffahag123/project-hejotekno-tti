@@ -18,6 +18,13 @@ class CekLoginMiddleware
         if (!session('berhasil_login')) {
             return redirect('/login');
         }
-        return $next($request);
+
+        // Periksa apakah pengguna adalah admin
+        if ($request->session()->has('admin')) {
+            return $next($request);
+        }
+
+        // Jika bukan admin, arahkan ke halaman login admin
+        return redirect('/login')->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
     }
 }

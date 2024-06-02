@@ -89,13 +89,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{route('table.user')}}">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Table User</p>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{route('typo')}}">
               <i class="now-ui-icons text_caps-small"></i>
               <p>Typography</p>
             </a>

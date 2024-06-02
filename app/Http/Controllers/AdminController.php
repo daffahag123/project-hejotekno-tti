@@ -15,6 +15,10 @@ class AdminController extends Controller
         $product = \App\Models\Product::all();
         return view('admin.dashboard', compact('product','admin'));
     }
+    public function tUser(){
+        $users =  \App\Models\Customer::all();
+        return view('admin.tableUser', compact('users'));
+    }
     public function typo()
     {
         return view('admin.typography');

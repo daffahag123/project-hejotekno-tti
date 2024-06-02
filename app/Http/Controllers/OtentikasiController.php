@@ -14,7 +14,7 @@ class OtentikasiController extends Controller
     {
         return view('signup');
     }
-    
+
     //login admin view
     public function index(){
         return view("login");
@@ -31,15 +31,16 @@ class OtentikasiController extends Controller
         if($data){
             if(Hash::check($request->password, $data->password)){
                 // Store admin data in session
-                session(['berhasil_login'=> true, 'customer' => $data]);
-                return redirect("/dashboard/table")->with("success","Selamat anda berhasil Login");
+                session(['admin' => $data]);
+                return redirect("/dashboard/table")->with("success", "Selamat anda berhasil Login");
             } else {
-                return redirect('/login')->with('error','Email atau Password Salah');
+                return redirect('/login')->with('error', 'Email atau Password Salah');
             }
         } else {
-            return redirect('/login')->with('error','Akun tidak ditemukan');
+            return redirect('/login')->with('error', 'Akun tidak ditemukan');
         }
     }
+    
     
 
     // login customer proses otentikasi
@@ -48,7 +49,7 @@ class OtentikasiController extends Controller
         if($data){
             if(Hash::check($request->password, $data->password)){
                 // Store admin data in session
-                session(['berhasil_login'=> true, 'admin' => $data]);
+                session(['berhasil_login'=> true, 'customer' => $data]);
                 return redirect("/")->with("success","Selamat anda berhasil Login");
             } else {
                 return redirect('/loginUser')->with('error','Email atau Password Salah');
