@@ -198,7 +198,7 @@
             $firstParagraph = $paragraphs[0];
             @endphp
             <p class="product-description">{{ $firstParagraph }}</p>
-            <a href="#" class="add-to-cart-btn">Add to Cart</a>
+            <a href="#" class="add-to-cart-btn" data-product-id="{{ $product->id_product }}" data-product-price="{{ $product->harga }}">Add to Cart</a>
           </div>
         </div>
       </div>
@@ -225,6 +225,7 @@
   <script src="{{ asset('js/wow.min.js') }}"></script>  <!-- wow -->
   <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>  <!-- magnific popup -->
   <script src="{{ asset('js/main.js') }}"></script>  <!-- Main Script -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- script buat overlay cart -->
   <script>
@@ -245,6 +246,33 @@
   $('#checkout-btn').click(function(e) {
     window.location.href = 'checkout';
   });
+});
+
+$(document).ready(function() {
+    $('.add-to-cart-btn').click(function(e) {
+        e.preventDefault();
+
+        var id_product = $(this).data('product-id');
+        var jumlah_item_dipesan = 1; // Adjust as needed
+        var jumlah_harga = $(this).data('product-price');
+
+        $.ajax({
+            url: '{{ route("addcart") }}',
+            type: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                id_product: id_product,
+                jumlah_item_dipesan: jumlah_item_dipesan,
+                jumlah_harga: jumlah_harga
+            },
+            success: function(response) {
+                alert(response.success);
+            },
+            error: function(xhr) {
+                alert('Error: ' + xhr.responseJSON.message);
+            }
+        });
+    });
 });
 
   </script>

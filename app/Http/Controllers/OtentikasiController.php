@@ -44,21 +44,22 @@ class OtentikasiController extends Controller
     
 
     // login customer proses otentikasi
-    public function login2(Request $request){
+    public function login2(Request $request)
+    {
         $data = Customer::where("email", $request->email)->first();
-        if($data){
-            if(Hash::check($request->password, $data->password)){
+        if ($data) {
+            if (Hash::check($request->password, $data->password)) {
                 // Store admin data in session
-                session(['berhasil_login'=> true, 'customer' => $data]);
-                return redirect("/")->with("success","Selamat anda berhasil Login");
+                session(['berhasil_login' => true, 'customer' => $data, 'id_customer' => $data->id_customer]);
+                return redirect("/")->with("success", "Selamat anda berhasil Login");
             } else {
-                return redirect('/loginUser')->with('error','Email atau Password Salah');
+                return redirect('/loginUser')->with('error', 'Email atau Password Salah');
             }
         } else {
-            return redirect('/loginUser')->with('error','Akun tidak ditemukan');
+            return redirect('/loginUser')->with('error', 'Akun tidak ditemukan');
         }
     }
-    
+
     
     //logout admin
     public function logout(Request $request){
