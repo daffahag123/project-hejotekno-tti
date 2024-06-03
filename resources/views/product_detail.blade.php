@@ -173,7 +173,11 @@
       <div class="cart-items">
         <!-- Isi dengan konten keranjang belanja -->
       </div>
-      <a href="#" id="checkout-btn">Proceed to Checkout</a>
+      @if(Session::has('customer'))
+      <a href="/checkout" id="checkout-btn">Proceed to Checkout</a>
+      @else
+      <a href="/loginUser" id="checkout-btn">Login</a>
+      @endif
     </div>
   </div>
   <div class="overlay"></div>

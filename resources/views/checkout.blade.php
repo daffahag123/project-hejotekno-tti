@@ -7,13 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Checkout - HEJOTEKNO</title>
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css"> <!-- Font Awesome -->
-  <link rel="stylesheet" href="css/normalize.css"> <!-- CSS reset -->
-  <link rel="stylesheet" href="css/bootstrap.min.css"> <!-- Bootstrap Grid -->
+  <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.min.css') }}"> <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ asset('css/normalize.css') }}"> <!-- CSS reset -->
+  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"> <!-- Bootstrap Grid -->
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-  <link rel="stylesheet" href="css/animate.min.css"><!-- Animate -->
-  <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-  <link rel="stylesheet" href="css/magnific-popup.css"> <!-- Resource style -->
+  <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}"><!-- Animate -->
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}"> <!-- Resource style -->
+  <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}"> <!-- Resource style -->
 
   <style>
     .checkout-container {
@@ -101,26 +101,20 @@
         <div class="cart-section">
           <h3>Barang dalam Keranjang</h3>
           <div class="cart-items">
+            @foreach ($pesanan as $item)
             <div class="cart-item">
-              <img src="images/product1.jpg" alt="Product 1">
+              <img src="{{ asset('images/' . $item->product->image) }}" alt="{{ $item->product->name }}">
               <div class="cart-item-details">
-                <h5>Nama Produk 1</h5>
-                <p>Deskripsi singkat produk 1</p>
+                <h5>{{ $item->product->name }}</h5>
+                <p>{{ $item->product->description }}</p>
+                <p>Jumlah: {{ $item->jumlah_item_dipesan }}</p>
               </div>
-              <div class="cart-item-price">Rp 100.000</div>
+              <div class="cart-item-price">Rp {{ number_format($item->jumlah_harga, 0, ',', '.') }}</div>
             </div>
-            <div class="cart-item">
-              <img src="images/product2.jpg" alt="Product 2">
-              <div class="cart-item-details">
-                <h5>Nama Produk 2</h5>
-                <p>Deskripsi singkat produk 2</p>
-              </div>
-              <div class="cart-item-price">Rp 200.000</div>
-            </div>
-            <!-- Tambahkan item lain di sini -->
+            @endforeach
           </div>
           <div class="cart-total">
-            <h4>Total: Rp 300.000</h4>
+            <h4>Total: Rp {{ number_format($pesanan->sum('jumlah_harga'), 0, ',', '.') }}</h4>
           </div>
         </div>
       </div>
@@ -129,11 +123,11 @@
 
   @include('components.footer')
 
-  <script src="js/jquery-2.1.4.min.js"></script> <!-- jQuery -->
-  <script src="js/bootstrap.min.js"></script> <!-- Bootstrap -->
-  <script src="js/wow.min.js"></script> <!-- wow -->
-  <script src="js/jquery.magnific-popup.min.js"></script> <!-- wow -->
-  <script src="js/main.js"></script> <!-- Main Script -->
+  <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script> <!-- jQuery -->
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script> <!-- Bootstrap -->
+  <script src="{{ asset('js/wow.min.js') }}"></script> <!-- wow -->
+  <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script> <!-- wow -->
+  <script src="{{ asset('js/main.js') }}"></script> <!-- Main Script -->
 </body>
 
 </html>

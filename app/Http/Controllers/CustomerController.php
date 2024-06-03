@@ -85,4 +85,22 @@ class CustomerController extends Controller
     return response()->json(['success' => 'Item added to cart successfully!']);
 }
 
+public function checkout()
+{
+    // Ambil ID customer dari session
+    $id_customer = session()->get('id_customer');
+
+    if (!$id_customer) {
+        return redirect('/loginUser')->withErrors(['error' => 'Anda harus login terlebih dahulu untuk melanjutkan ke checkout.']);
+    }
+
+    // Ambil data pesanan dengan status pending sesuai ID customer
+    $pesanan = Pesanan::where('id_customer', $id_customer)
+                      ->where('status', 'Pending')
+                      ->get();
+
+    // Lempar data ke view
+    return view('checkout', compact('pesanan'));
+}
+
 }
