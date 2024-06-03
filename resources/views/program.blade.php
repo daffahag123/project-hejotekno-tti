@@ -12,11 +12,28 @@
   <link rel="stylesheet" href="css/animate.min.css"><!-- Animate -->
   <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
   <link rel="stylesheet" href="css/magnific-popup.css"> <!-- Resource style -->
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
   <style>
-    .mySlides {display:none}
-    .w3-left, .w3-right, .w3-badge {cursor:pointer}
-    .w3-badge {height:13px;width:13px;padding:0}
+    /* Customize carousel styles here */
+    .carousel {
+      max-width: 800px;
+      margin: auto;
+    }
+    .slick-prev, .slick-next {
+      padding: 20px;
+      font-size: 24px;
+      color: black;
+    }
+    .slick-dots li button:before {
+      padding-top:20px;
+      font-size: 12px;
+      color: black;
+    }
+    .slick-dots li.slick-active button:before {
+      color: black;
+    }
   </style>
 </head>
 <body>
@@ -71,85 +88,31 @@
   </section>
 
   <section id="kamisama-description">
-      <h2 class="w3-center"></h2>
-
-      <div class="w3-content w3-display-container" style="max-width:800px">
-      <img class="mySlides" src="images/slide/1.png" style="width:100%">
-      <img class="mySlides" src="images/slide/2.png" style="width:100%">
-      <img class="mySlides" src="images/slide/3.png" style="width:100%">
-      <img class="mySlides" src="images/slide/4.png" style="width:100%">
-      <img class="mySlides" src="images/slide/5.png" style="width:100%">
-      <img class="mySlides" src="images/slide/6.png" style="width:100%">
-      <img class="mySlides" src="images/slide/7.png" style="width:100%">
-      <img class="mySlides" src="images/slide/8.png" style="width:100%">
-      <img class="mySlides" src="images/slide/9.png" style="width:100%">
-      <img class="mySlides" src="images/slide/10.png" style="width:100%">
-      <img class="mySlides" src="images/slide/11.png" style="width:100%">
-      <img class="mySlides" src="images/slide/12.png" style="width:100%">
-      <img class="mySlides" src="images/slide/13.png" style="width:100%">
-      <img class="mySlides" src="images/slide/14.png" style="width:100%">
-      <img class="mySlides" src="images/slide/15.png" style="width:100%">
-      <img class="mySlides" src="images/slide/16.png" style="width:100%">
-      <img class="mySlides" src="images/slide/17.png" style="width:100%">
-      <img class="mySlides" src="images/slide/18.png" style="width:100%">
-      <img class="mySlides" src="images/slide/19.png" style="width:100%">
-      <img class="mySlides" src="images/slide/20.png" style="width:100%">
-      
-      <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
-        <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
-        <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(5)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(6)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(7)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(8)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(9)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(10)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(11)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(12)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(13)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(14)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(15)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(16)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(17)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(18)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(19)"></span>
-        <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(20)"></span>
-      </div>
+    <!-- <h2 class="center">Carousel Section</h2> -->
+    <div class="carousel">
+      <div><img src="images/slide/1.png" style="width:100%"></div>
+      <div><img src="images/slide/2.png" style="width:100%"></div>
+      <div><img src="images/slide/3.png" style="width:100%"></div>
+      <div><img src="images/slide/4.png" style="width:100%"></div>
+      <div><img src="images/slide/5.png" style="width:100%"></div>
+      <div><img src="images/slide/6.png" style="width:100%"></div>
+      <div><img src="images/slide/7.png" style="width:100%"></div>
+      <div><img src="images/slide/8.png" style="width:100%"></div>
+      <div><img src="images/slide/9.png" style="width:100%"></div>
+      <div><img src="images/slide/10.png" style="width:100%"></div>
+      <div><img src="images/slide/11.png" style="width:100%"></div>
+      <div><img src="images/slide/12.png" style="width:100%"></div>
+      <div><img src="images/slide/13.png" style="width:100%"></div>
+      <div><img src="images/slide/14.png" style="width:100%"></div>
+      <div><img src="images/slide/15.png" style="width:100%"></div>
+      <div><img src="images/slide/16.png" style="width:100%"></div>
+      <div><img src="images/slide/17.png" style="width:100%"></div>
+      <div><img src="images/slide/18.png" style="width:100%"></div>
+      <div><img src="images/slide/19.png" style="width:100%"></div>
+      <div><img src="images/slide/20.png" style="width:100%"></div>
     </div>
-
-    <script>
-    var slideIndex = 1;
-    showDivs(slideIndex);
-
-    function plusDivs(n) {
-      showDivs(slideIndex += n);
-    }
-
-    function currentDiv(n) {
-      showDivs(slideIndex = n);
-    }
-
-    function showDivs(n) {
-      var i;
-      var x = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("demo");
-      if (n > x.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = x.length}
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";  
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" w3-white", "");
-      }
-      x[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " w3-white";
-    }
-    </script>
   </section>
+
 
   <section id="kamisama-features">
     <br><br><br>
@@ -199,27 +162,22 @@
   <script src="js/wow.min.js"></script>  <!-- wow -->
   <script src="js/jquery.magnific-popup.min.js"></script>  <!-- wow -->
   <script src="js/main.js"></script>  <!-- Main Script -->
-  <!-- script buat overlay cart -->
-  <script>
-    $(document).ready(function() {
-      $('.fa-shopping-bag').click(function(e) {
-        e.preventDefault();
-        $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
-        $('.overlay').fadeIn(); // tampilkan overlay
-      });
-
-      $('.overlay').click(function(e) {
-        if (e.target === this) {
-          $('#cart-overlay, .overlay').css('right', '-300px');
-          $('.overlay').fadeOut(); // sembunyikan overlay
-        }
-      });
-
-      $('#checkout-btn').click(function(e) {
-        window.location.href = 'checkout.html';
-      });
+  <!-- Include jQuery before Slick Carousel script -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Slick Carousel script -->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.carousel').slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      adaptiveHeight: true,
+      prevArrow: '<button type="button" class="slick-prev">&#10094;</button>',
+      nextArrow: '<button type="button" class="slick-next">&#10095;</button>',
     });
-  </script>
-  
+  });
+</script>
 </body>
 </html>

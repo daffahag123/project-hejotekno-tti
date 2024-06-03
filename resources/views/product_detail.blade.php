@@ -231,26 +231,8 @@
   <script src="{{ asset('js/main.js') }}"></script>  <!-- Main Script -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- script buat overlay cart -->
+  <!-- script buat addtocart kalau belum/sudah login -->
   <script>
-   $(document).ready(function() {
-  $('.fa-shopping-bag').click(function(e) {
-    e.preventDefault();
-    $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
-    $('.overlay').fadeIn(); // tampilkan overlay
-  });
-
-  $('.overlay').click(function(e) {
-    if (e.target === this) {
-      $('#cart-overlay, .overlay').css('right', '-300px');
-      $('.overlay').fadeOut(); // sembunyikan overlay
-    }
-  });
-
-  $('#checkout-btn').click(function(e) {
-    window.location.href = 'checkout';
-  });
-});
 
 var isLoggedIn = {{ Auth::check() ? 'true' : 'false' }};
 
