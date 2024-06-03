@@ -233,17 +233,16 @@
 
   <!-- script buat addtocart kalau belum/sudah login -->
   <script>
-
-var isLoggedIn = {{ Auth::check() ? 'true' : 'false' }};
-
     $(document).ready(function() {
+        // var isLoggedIn = {{ Auth::check() ? 'true' : 'false' }};
+        
         $('.add-to-cart-btn').click(function(e) {
             e.preventDefault();
 
-            if (!isLoggedIn) {
-                window.location.href = '{{ route("login.user") }}';
-                return;
-            }
+            // if (!isLoggedIn) {
+            //     window.location.href = '{{ route("login.user") }}';
+            //     return;
+            // }
 
             var id_product = $(this).data('product-id');
             var jumlah_item_dipesan = 1; // Adjust as needed
@@ -259,10 +258,16 @@ var isLoggedIn = {{ Auth::check() ? 'true' : 'false' }};
                     jumlah_harga: jumlah_harga
                 },
                 success: function(response) {
-                    alert(response.success);
+                    // Handle successful response
+                    if (response.success) {
+                        alert('Item added to cart');
+                    } else {
+                        alert('Failed to add item to cart');
+                    }
                 },
-                error: function(xhr) {
-                    alert('Error: ' + xhr.responseJSON.message);
+                error: function(xhr, status, error) {
+                    // Handle error
+                    alert('An error occurred while adding the item to the cart');
                 }
             });
         });
