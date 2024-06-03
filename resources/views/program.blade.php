@@ -1,21 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>KAMISAMA Program - HEJOTEKNO</title>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,500' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css"> <!-- Font Awesome -->
-  <link rel="stylesheet" href="css/normalize.css"> <!-- CSS reset -->
-  <link rel="stylesheet" href="css/bootstrap.min.css"> <!-- Bootstrap Grid -->
-  <link rel="stylesheet" href="css/animate.min.css"><!-- Animate -->
-  <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-  <link rel="stylesheet" href="css/magnific-popup.css"> <!-- Resource style -->
+  <title>HEJOTEKNO</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,700,500" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.min.css') }}"> <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ asset('css/normalize.css') }}"> <!-- CSS reset -->
+  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"> <!-- Bootstrap Grid -->
+  <link rel="stylesheet" href="{{ asset('https://cdn.linearicons.com/free/1.0.0/icon-font.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}"><!-- Animate -->
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}"> <!-- Resource style -->
+  <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}"> <!-- Resource style -->
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
   <style>
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* warna hitam dengan opacity 0.5 */
+      z-index: 9998; /* letakkan di bawah cart-overlay */
+      display: none; /* sembunyikan secara default */
+    }
+    #cart-overlay {
+      position: fixed;
+      top: 0;
+      right: -300px; /* Start off-screen */
+      width: 300px;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 1);
+      z-index: 9999;
+      transition: right 0.3s ease; /* Add transition for smooth sliding */
+    }
+
+    #cart-content {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      padding: 20px;
+      background-color: #fff;
+      color: #333;
+    }
+
+    #cart-content h3 {
+      margin-top: 0;
+    }
+
+    #checkout-btn {
+      display: block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    #checkout-btn:hover {
+      background-color: #555;
+    }
+
     /* Customize carousel styles here */
     .carousel {
       max-width: 800px;
@@ -37,6 +89,16 @@
   </style>
 </head>
 <body>
+<div id="cart-overlay">
+    <div id="cart-content">
+      <h3>Your Cart</h3>
+      <div class="cart-items">
+        <!-- Isi dengan konten keranjang belanja -->
+      </div>
+      <a href="#" id="checkout-btn">Proceed to Checkout</a>
+    </div>
+  </div>
+  <div class="overlay"></div>
   @include('components.header')
 
   <section id="kamisama-description">
@@ -167,6 +229,24 @@
 <!-- Slick Carousel script -->
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
+   $(document).ready(function() {
+  $('.fa-shopping-bag').click(function(e) {
+    e.preventDefault();
+    $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
+    $('.overlay').fadeIn(); // tampilkan overlay
+  });
+
+  $('.overlay').click(function(e) {
+    if (e.target === this) {
+      $('#cart-overlay, .overlay').css('right', '-300px');
+      $('.overlay').fadeOut(); // sembunyikan overlay
+    }
+  });
+
+  $('#checkout-btn').click(function(e) {
+    window.location.href = 'checkout';
+  });
+});
   $(document).ready(function(){
     $('.carousel').slick({
       dots: true,
