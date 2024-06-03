@@ -147,7 +147,7 @@
             Smokeless Incinerator adalah sebuah produk solusi Karya Anak Bangsa untuk penanganan masalah sampah dengan menggunakan produk teknologi ramah lingkungan dan hemat energi.
           </p>
           <div class="btns-container">
-            <a href="#" class="btn btn-green">See more<i class="fa fa-arrow-right"></i></a>
+            <a href="product_detail/product-1" class="btn btn-green">See more<i class="fa fa-arrow-right"></i></a>
             <!-- <a href="#" class="btn">Learn More</a> -->
           </div>
         </div>
@@ -177,7 +177,7 @@
           </p>
           <br><br>
           <div class="btns-container">
-            <a href="#" class="btn btn-green">See more‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ‎ ‎ <i class="fa fa-arrow-right"></i></a>
+            <a href="product_detail/product-2" class="btn btn-green">See more‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ‎ ‎ <i class="fa fa-arrow-right"></i></a>
             <!-- <a href="#" class="btn">Learn More</a> -->
           </div>
           <div class="partners">
