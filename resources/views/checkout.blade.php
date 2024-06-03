@@ -57,6 +57,14 @@
     .cart-item-price {
       font-weight: bold;
     }
+
+    .empty-cart-message {
+      text-align: center;
+      padding: 50px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
   </style>
 </head>
 
@@ -70,7 +78,8 @@
       <div class="col-md-6">
         <div class="form-section">
           <h3>Data Diri dan Alamat Pengiriman</h3>
-          <form id="checkout-form" method="post" action="submit_checkout.php">
+          <form id="checkout-form" method="post" action="">
+            @csrf
             <div class="form-group">
               <label for="name">Nama Lengkap *</label>
               <input type="text" id="name" name="name" class="form-control" required>
@@ -99,23 +108,29 @@
       <!-- Daftar Barang di Cart -->
       <div class="col-md-6">
         <div class="cart-section">
+          @if ($pesanan->isEmpty())
+          <div class="empty-cart-message">
+            <h4>Keranjang masih kosong</h4>
+          </div>
+          @else
           <h3>Barang dalam Keranjang</h3>
           <div class="cart-items">
-            @foreach ($pesanan as $item)
-            <div class="cart-item">
-              <img src="{{ asset('images/' . $item->product->image) }}" alt="{{ $item->product->name }}">
-              <div class="cart-item-details">
-                <h5>{{ $item->product->name }}</h5>
-                <p>{{ $item->product->description }}</p>
-                <p>Jumlah: {{ $item->jumlah_item_dipesan }}</p>
+              @foreach ($pesanan as $item)
+              <div class="cart-item">
+                <img src="{{ asset('images/products/' . $item->product->gambar) }}" alt="{{ $item->product->name }}">
+                <div class="cart-item-details">
+                  <h5>{{ $item->product->nama_product }}</h5>
+                  <p>{{ $item->product->deskripsi_nama }}</p>
+                  <p>Jumlah: {{ $item->jumlah_item_dipesan }}</p>
+                </div>
+                <div class="cart-item-price">Rp {{ number_format($item->jumlah_harga, 0, ',', '.') }}</div>
               </div>
-              <div class="cart-item-price">Rp {{ number_format($item->jumlah_harga, 0, ',', '.') }}</div>
+              @endforeach
             </div>
-            @endforeach
-          </div>
-          <div class="cart-total">
-            <h4>Total: Rp {{ number_format($pesanan->sum('jumlah_harga'), 0, ',', '.') }}</h4>
-          </div>
+            <div class="cart-total">
+              <h4>Total: Rp {{ number_format($pesanan->sum('jumlah_harga'), 0, ',', '.') }}</h4>
+            </div>
+          @endif
         </div>
       </div>
     </div>

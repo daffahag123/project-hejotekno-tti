@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\Pesanan;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -85,22 +86,24 @@ class CustomerController extends Controller
     return response()->json(['success' => 'Item added to cart successfully!']);
 }
 
-public function checkout()
-{
-    // Ambil ID customer dari session
-    $id_customer = session()->get('id_customer');
+    public function checkout()
+    {
+        // Ambil ID customer dari session
+        $id_customer = session()->get('id_customer');
 
-    if (!$id_customer) {
-        return redirect('/loginUser')->withErrors(['error' => 'Anda harus login terlebih dahulu untuk melanjutkan ke checkout.']);
+        if (!$id_customer) {
+            return redirect('/loginUser')->withErrors(['error' => 'Anda harus login terlebih dahulu untuk melanjutkan ke checkout.']);
+        }
+
+        // Ambil data pesanan dengan status pending sesuai ID customer
+        $pesanan = Pesanan::where('id_customer', $id_customer)
+                        ->where('status', 'Pending')
+                        ->with('product') // Eager load the related product
+                        ->get();
+
+        // Lempar data ke view
+        return view('checkout', compact('pesanan'));
     }
 
-    // Ambil data pesanan dengan status pending sesuai ID customer
-    $pesanan = Pesanan::where('id_customer', $id_customer)
-                      ->where('status', 'Pending')
-                      ->get();
-
-    // Lempar data ke view
-    return view('checkout', compact('pesanan'));
-}
 
 }
