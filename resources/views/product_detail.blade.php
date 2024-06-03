@@ -231,47 +231,54 @@
   <script src="{{ asset('js/main.js') }}"></script>  <!-- Main Script -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- script buat addtocart kalau belum/sudah login -->
+  <!-- script buat overlay cart -->
   <script>
-    $(document).ready(function() {
-        // var isLoggedIn = {{ Auth::check() ? 'true' : 'false' }};
-        
-        $('.add-to-cart-btn').click(function(e) {
-            e.preventDefault();
+   $(document).ready(function() {
+  $('.fa-shopping-bag').click(function(e) {
+    e.preventDefault();
+    $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
+    $('.overlay').fadeIn(); // tampilkan overlay
+  });
 
-            // if (!isLoggedIn) {
-            //     window.location.href = '{{ route("login.user") }}';
-            //     return;
-            // }
+  $('.overlay').click(function(e) {
+    if (e.target === this) {
+      $('#cart-overlay, .overlay').css('right', '-300px');
+      $('.overlay').fadeOut(); // sembunyikan overlay
+    }
+  });
 
-            var id_product = $(this).data('product-id');
-            var jumlah_item_dipesan = 1; // Adjust as needed
-            var jumlah_harga = $(this).data('product-price');
+  $('#checkout-btn').click(function(e) {
+    window.location.href = 'checkout';
+  });
+});
 
-            $.ajax({
-                url: '{{ route("addcart") }}',
-                type: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    id_product: id_product,
-                    jumlah_item_dipesan: jumlah_item_dipesan,
-                    jumlah_harga: jumlah_harga
-                },
-                success: function(response) {
-                    // Handle successful response
-                    if (response.success) {
-                        alert('Item added to cart');
-                    } else {
-                        alert('Failed to add item to cart');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    // Handle error
-                    alert('An error occurred while adding the item to the cart');
-                }
-            });
+$(document).ready(function() {
+    $('.add-to-cart-btn').click(function(e) {
+        e.preventDefault();
+
+        var id_product = $(this).data('product-id');
+        var jumlah_item_dipesan = 1; // Adjust as needed
+        var jumlah_harga = $(this).data('product-price');
+
+        $.ajax({
+            url: '{{ route("addcart") }}',
+            type: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                id_product: id_product,
+                jumlah_item_dipesan: jumlah_item_dipesan,
+                jumlah_harga: jumlah_harga
+            },
+            success: function(response) {
+                alert(response.success);
+            },
+            error: function(xhr) {
+                alert('Error: ' + xhr.responseJSON.message);
+            }
         });
     });
+});
+
   </script>
 </body>
 </html>
