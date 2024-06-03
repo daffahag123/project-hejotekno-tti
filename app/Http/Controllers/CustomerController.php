@@ -42,31 +42,47 @@ class CustomerController extends Controller
     }
 
     public function addcart(Request $request)
-    {
-        // Retrieve the customer ID from the session
-        $id_customer = $request->session()->get('id_customer');
+{
+    // Retrieve the customer ID from the session
+    $id_customer = $request->session()->get('id_customer');
 
-        if (!$id_customer) {
-            return response()->json(['error' => 'Customer ID not found in session.'], 400);
-        }
-
-        // Validate the incoming request data
-        $request->validate([
-            'id_product' => 'required|integer|exists:products,id_product',
-            'jumlah_item_dipesan' => 'required|integer|min:1',
-            'jumlah_harga' => 'required|numeric|min:0',
-        ]);
-
-        // Create a new Pesanan (order) record
-        $pesanan = new Pesanan();
-        $pesanan->id_customer = $id_customer;
-        $pesanan->id_product = $request->input('id_product');
-        $pesanan->jumlah_item_dipesan = $request->input('jumlah_item_dipesan');
-        $pesanan->jumlah_harga = $request->input('jumlah_harga');
-        $pesanan->tanggal_pesananan_dibuat = now();
-        $pesanan->status = 'Pending';
-        $pesanan->save();
-
-        return response()->json(['success' => 'Item added to cart successfully!']);
+    if (!$id_customer) {
+        return response()->json(['error' => 'Customer ID not found in session.'], 400);
     }
+
+    // Validate the incoming request data
+    $request->validate([
+        'id_product' => 'required|integer|exists:products,id_product',
+        'jumlah_item_dipesan' => 'required|integer|min:1',
+        'jumlah_harga' => 'required|numeric|min:0',
+    ]);
+
+    // Check if there is an existing order for the same product with a 'Pending' status
+    $existingPesanan = Pesanan::where('id_customer', $id_customer)
+                               ->where('id_product', $request->input('id_product'))
+                               ->where('status', 'Pending')
+                               ->first();
+
+    if ($existingPesanan) {
+        // Update the existing order
+        $existingPesanan->jumlah_item_dipesan += $request->input('jumlah_item_dipesan');
+        $existingPesanan->jumlah_harga += $request->input('jumlah_harga');
+        $existingPesanan->save();
+        
+        return response()->json(['success' => 'Item quantity updated in cart successfully!']);
+    }
+
+    // Create a new Pesanan (order) record
+    $pesanan = new Pesanan();
+    $pesanan->id_customer = $id_customer;
+    $pesanan->id_product = $request->input('id_product');
+    $pesanan->jumlah_item_dipesan = $request->input('jumlah_item_dipesan');
+    $pesanan->jumlah_harga = $request->input('jumlah_harga');
+    $pesanan->tanggal_pesananan_dibuat = now();
+    $pesanan->status = 'Pending';
+    $pesanan->save();
+
+    return response()->json(['success' => 'Item added to cart successfully!']);
+}
+
 }
