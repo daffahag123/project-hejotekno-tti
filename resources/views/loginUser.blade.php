@@ -45,7 +45,9 @@
             <!-- SIGN IN CONTENT -->
             <div class="col align-items-center flex-col">
                 <div class="text sign-in">
-                    <h2>Welcome</h2>
+                <br><br>
+                <!-- <img src="images/HTPUTIH.png" alt="Join with us" style="width: 60%; height: auto;"><br><br> -->
+                <img src="images/tti1.png" alt="Join with us" style="max-width: 50%; height: auto;">
                 </div>
                 <div class="img sign-in"></div>
             </div>

@@ -31,6 +31,27 @@
                 @csrf
                 <div class="input-group">
                     <i class='bx bxs-user'></i>
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    @error('name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="input-group">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" name="phone" placeholder="Phone" required>
+                    @error('phone')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="input-group">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" name="address" placeholder="Address" required>
+                    @error('address')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="input-group">
+                    <i class='bx bxs-user'></i>
                     <input type="text" name="username" placeholder="Username" value="{{ old('username') }}" required>
                     @error('username')
                         <span class="text-danger">{{ $message }}</span>
@@ -61,7 +82,7 @@
                 <span>
                         Already have an account?
                     </span>
-                            <b onclick="window.location.href='{{ route('login.user') }}'" class="pointer">Sign up here</b>
+                            <b onclick="window.location.href='{{ route('login.user') }}'" class="pointer">Sign in here</b>
                         </p>
             </form>
 
@@ -81,9 +102,9 @@
                 <div class="img sign-up">
                 </div>
                 <div class="text sign-up">
-                    <h2>
-                        Join with us
-                    </h2>
+                    <br><br>
+                <!-- <img src="images/HTPUTIH.png" alt="Join with us" style="width: 60%; height: auto;"><br><br> -->
+                <img src="images/tti1.png" alt="Join with us" style="max-width: 50%; height: auto;">
                 </div>
             </div>
             <!-- END SIGN UP CONTENT -->
