@@ -252,33 +252,39 @@
   });
 });
 
-$(document).ready(function() {
-    $('.add-to-cart-btn').click(function(e) {
-        e.preventDefault();
+var isLoggedIn = {{ Auth::check() ? 'true' : 'false' }};
 
-        var id_product = $(this).data('product-id');
-        var jumlah_item_dipesan = 1; // Adjust as needed
-        var jumlah_harga = $(this).data('product-price');
+    $(document).ready(function() {
+        $('.add-to-cart-btn').click(function(e) {
+            e.preventDefault();
 
-        $.ajax({
-            url: '{{ route("addcart") }}',
-            type: 'POST',
-            data: {
-                _token: '{{ csrf_token() }}',
-                id_product: id_product,
-                jumlah_item_dipesan: jumlah_item_dipesan,
-                jumlah_harga: jumlah_harga
-            },
-            success: function(response) {
-                alert(response.success);
-            },
-            error: function(xhr) {
-                alert('Error: ' + xhr.responseJSON.message);
+            if (!isLoggedIn) {
+                window.location.href = '{{ route("login.user") }}';
+                return;
             }
+
+            var id_product = $(this).data('product-id');
+            var jumlah_item_dipesan = 1; // Adjust as needed
+            var jumlah_harga = $(this).data('product-price');
+
+            $.ajax({
+                url: '{{ route("addcart") }}',
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id_product: id_product,
+                    jumlah_item_dipesan: jumlah_item_dipesan,
+                    jumlah_harga: jumlah_harga
+                },
+                success: function(response) {
+                    alert(response.success);
+                },
+                error: function(xhr) {
+                    alert('Error: ' + xhr.responseJSON.message);
+                }
+            });
         });
     });
-});
-
   </script>
 </body>
 </html>

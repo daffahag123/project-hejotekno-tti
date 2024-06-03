@@ -11,7 +11,9 @@
         <li><a href="{{ url('/program') }}">Program</a></li>
         <li><a href="{{ url('/contact') }}">Contact Us</a></li>
         @if(!Session::has ('customer'))
-        <li><a href="{{ route('login.user') }}">Login</a></li>
+        <li><a href="{{ route('login.user') }}">Log In</a></li>
+        @elseif(Session::has ('customer'))
+        <li><a href="#">Transaction History</a></li>
         @endif
         <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
       </ul>
@@ -42,9 +44,13 @@
         <ul class="right">
           <li><a href="{{ url('/contact') }}">Contact Us</a></li>
           @if(!Session::has ('customer'))
-              <li><a href="{{ route('login.user') }}">Login</a></li>
+          <div class="btn btn-green">
+              <li><a href="{{ route('login.user') }}">Log In</a></li>
+</div>
+          @elseif(Session::has ('customer'))
+            <li><a href="">Transaction History</a></li>
+            <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
           @endif
-          <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
         </ul>
       </div>
     </div>
