@@ -273,7 +273,7 @@ $(document).ready(function() {
                 alert(response.success);
             },
             error: function(xhr) {
-                alert('Error: ' + xhr.responseJSON.message);
+                alert('Log In to Order');
             }
         });
     });
