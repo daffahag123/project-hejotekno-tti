@@ -10,6 +10,9 @@
         <li><a href="{{ url('/products') }}">Products</a></li>
         <li><a href="{{ url('/program') }}">Program</a></li>
         <li><a href="{{ url('/contact') }}">Contact Us</a></li>
+        @if(!Session::has ('customer'))
+        <li><a href="{{ route('login.user') }}">Login</a></li>
+        @endif
         <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
       </ul>
       <div class="slide_out_menu_footer">
@@ -38,6 +41,9 @@
       <div class="col-md-4">
         <ul class="right">
           <li><a href="{{ url('/contact') }}">Contact Us</a></li>
+          @if(!Session::has ('customer'))
+              <li><a href="{{ route('login.user') }}">Login</a></li>
+          @endif
           <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
         </ul>
       </div>
