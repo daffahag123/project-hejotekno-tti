@@ -113,39 +113,32 @@
 
   <section id="transaction-history" class="table-container">
   <br><br>
-    <h2>Transaction History</h2>
-    <table>
-      <thead>
+  <h2>Transaction History</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Transaction Date</th>
+        <th>Items Purchased</th>
+        <th>Total Price</th>
+        <th>Status</th>
+        <th>Download Invoice</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach($transaksi as $index => $trx)
         <tr>
-          <th>No</th>
-          <th>Transaction Date</th>
-          <th>Items Purchased</th>
-          <th>Total Price</th>
-          <th>Status</th>
-          <th>Download Invoice</th>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ $trx->waktu_transaksi }}</td>
+          <td>{{ $trx->items_purchased }}</td> 
+          <td>Rp {{ number_format($trx->total, 0, ',', '.') }}</td>
+          <td>{{ $trx->status }}</td> 
+          <td><a href="{{ asset('path/to/invoices/' . $trx->pdf) }}" class="download-invoice">Download PDF</a></td>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>2024-06-01</td>
-          <td>Item A, Item B</td>
-          <td>$100</td>
-          <td>Completed</td>
-          <td><a href="#" class="download-invoice">Download PDF</a></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>2024-06-02</td>
-          <td>Item C</td>
-          <td>$50</td>
-          <td>Pending</td>
-          <td><a href="#" class="download-invoice">Download PDF</a></td>
-        </tr>
-        <!-- Tambahkan lebih banyak data transaksi di sini -->
-      </tbody>
-    </table>
-  </section>
+      @endforeach
+    </tbody>
+  </table>
+</section>
 
   @include('components.footer')
 
@@ -154,6 +147,33 @@
   <script src="js/wow.min.js"></script>  <!-- wow -->
   <script src="js/jquery.magnific-popup.min.js"></script>  <!-- wow -->
   <script src="js/main.js"></script>  <!-- Main Script -->
-  
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.download-invoice').forEach(function(element) {
+    element.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default action
+
+      var link = event.target;
+      var filename = link.getAttribute('data-filename');
+
+      // Check if file exists
+      fetch(filename, { method: 'HEAD' })
+        .then(function(response) {
+          if (response.ok) {
+            // File exists, proceed with download
+            window.location.href = filename;
+          } else {
+            // File does not exist, show alert
+            alert('Dokumen receipt belum tersedia, silakan tunggu beberapa saat.');
+          }
+        })
+        .catch(function(error) {
+          console.error('Error:', error);
+          alert('Terjadi kesalahan saat memeriksa ketersediaan dokumen.');
+        });
+    });
+  });
+});
+</script>
 </body>
 </html>

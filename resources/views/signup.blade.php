@@ -25,70 +25,69 @@
         <!-- FORM SECTION -->
         <div class="row">
             <!-- SIGN UP -->
-            <div class="col align-items-center flex-col sign-up">
-                <div class="form-wrapper align-items-center">
-                <form class="form sign-up" action="{{ route('signup') }}" method="POST">
-                @csrf
-                <div class="input-group">
-                    <i class='bx bxs-user'></i>
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    @error('name')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="input-group">
-                    <i class='bx bxs-user'></i>
-                    <input type="text" name="phone" placeholder="Phone" required>
-                    @error('phone')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="input-group">
-                    <i class='bx bxs-user'></i>
-                    <input type="text" name="address" placeholder="Address" required>
-                    @error('address')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="input-group">
-                    <i class='bx bxs-user'></i>
-                    <input type="text" name="username" placeholder="Username" value="{{ old('username') }}" required>
-                    @error('username')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="input-group">
-                    <i class='bx bx-mail-send'></i>
-                    <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
-                    @error('email')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="input-group">
-                    <i class='bx bxs-lock-alt'></i>
-                    <input type="password" name="password" placeholder="Password" required>
-                    @error('password')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="input-group">
-                    <i class='bx bxs-lock-alt'></i>
-                    <input type="password" name="password_confirmation" placeholder="Confirm password" required>
-                </div>
-                <button type="submit">
-                    Sign up
-                </button>
-                <p>
-                <span>
-                        Already have an account?
-                    </span>
-                            <b onclick="window.location.href='{{ route('login.user') }}'" class="pointer">Sign in here</b>
-                        </p>
-            </form>
-
-                </div>
+<div class="col align-items-center flex-col sign-up">
+    <div class="form-wrapper align-items-center">
+        <form class="form sign-up" action="{{ route('signup') }}" method="POST">
+            @csrf
+            <div class="input-group">
+                <i class='bx bxs-user'></i>
+                <input type="text" name="name" placeholder="Full Name" value="{{ old('name') }}" required>
+                @error('name')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
-            <!-- END SIGN UP -->
+            <div class="input-group">
+                <i class='bx bxs-phone'></i>
+                <input type="text" name="no_telephone" placeholder="Phone Number" value="{{ old('no_telephone') }}" required>
+                @error('no_telephone')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="input-group">
+                <i class='bx bxs-home'></i>
+                <input type="text" name="alamat" placeholder="Address" value="{{ old('alamat') }}" required>
+                @error('alamat')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="input-group">
+                <i class='bx bx-mail-send'></i>
+                <input type="email" name="email" placeholder="Email Address" value="{{ old('email') }}" required>
+                @error('email')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="input-group">
+                <i class='bx bxs-user'></i>
+                <input type="text" name="username" placeholder="Username" value="{{ old('username') }}" required>
+                @error('username')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="input-group">
+                <i class='bx bxs-lock-alt'></i>
+                <input type="password" name="password" placeholder="Password" required>
+                @error('password')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="input-group">
+                <i class='bx bxs-lock-alt'></i>
+                <input type="password" name="password_confirmation" placeholder="Confirm password" required>
+            </div>
+            <button type="submit">
+                Sign up
+            </button>
+            <p>
+                <span>Already have an account?</span>
+                <b onclick="window.location.href='{{ route('login.user') }}'" class="pointer">Sign in here</b>
+            </p>
+        </form>
+
+    </div>
+</div>
+<!-- END SIGN UP -->
+
         </div>
         <!-- END FORM SECTION -->
         <!-- CONTENT SECTION -->

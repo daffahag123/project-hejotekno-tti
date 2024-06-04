@@ -21,12 +21,12 @@ class Customer extends Authenticatable
         'username',
         'name',
         'password',
-        'google_id',
         'nama_customer',
         'email',
         'no_telephone',
         'email_verified_at',
         'remember_token',
+        'alamat',
     ];
 
     /**
