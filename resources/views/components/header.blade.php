@@ -48,7 +48,7 @@
               <li><a href="{{ route('login.user') }}">Log In</a></li>
 </div>
           @elseif(Session::has ('customer'))
-            <li><a href="">Transaction History</a></li>
+            <li><a href="/history">Transaction History</a></li>
             <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
           @endif
         </ul>
