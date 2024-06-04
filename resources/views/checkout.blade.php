@@ -122,6 +122,24 @@
     #checkout-btn:hover {
       background-color: #555;
     }
+
+    /* quantity */
+    .quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control button {
+  background-color: #ddd;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.quantity-control span {
+  margin: 0 10px;
+}
+
   </style>
 </head>
 
@@ -144,6 +162,11 @@
           <h5>{{ $item->product->nama_product }}</h5>
           <h5>Jumlah: {{ $item->jumlah_item_dipesan }}</h5>
           <h5>Rp {{ number_format($item->jumlah_harga, 0, ',', '.') }}</h5>
+          <div class="quantity-control">
+            <button class="decrement-btn" data-id="{{ $item->id }}">-</button>
+            <span>{{ $item->jumlah_item_dipesan }}</span>
+            <button class="increment-btn" data-id="{{ $item->id }}">+</button>
+          </div>
         </div>
       </div>
       @endforeach
@@ -214,9 +237,17 @@
               <div class="cart-item-details">
                 <h5>{{ $item->product->nama_product }}</h5>
                 <p>{{ $item->product->deskripsi_nama }}</p>
-                <p>Jumlah: {{ $item->jumlah_item_dipesan }}</p>
+                <!-- <p>Jumlah: {{ $item->jumlah_item_dipesan }}</p> -->
               </div>
-              <div class="cart-item-price">Rp {{ number_format($item->jumlah_harga, 0, ',', '.') }}</div>
+              <div class="cart-item-price">Rp {{ number_format($item->jumlah_harga, 0, ',', '.') }}
+              <br><br>
+                <div class="quantity-control">
+                    <button class="decrement-btn" data-id="{{ $item->id }}">-</button>
+                    <span>{{ $item->jumlah_item_dipesan }}</span>
+                    <button class="increment-btn" data-id="{{ $item->id }}">+</button>
+                  </div>
+              </div>
+
             </div>
             @endforeach
           </div>
@@ -266,6 +297,27 @@
 
   $('#checkout-btn').click(function(e) {
     window.location.href = 'checkout';
+  });
+
+  // quantity
+  // tambah
+  $(document).on('click', '.increment-btn', function() {
+    var itemId = $(this).data('id');
+    var quantityElem = $(this).siblings('span');
+    var newQuantity = parseInt(quantityElem.text()) + 1;
+    quantityElem.text(newQuantity);
+    // ubdate harga
+  });
+
+  // kurang
+  $(document).on('click', '.decrement-btn', function() {
+    var itemId = $(this).data('id');
+    var quantityElem = $(this).siblings('span');
+    var newQuantity = parseInt(quantityElem.text()) - 1;
+    if (newQuantity > 0) {
+      quantityElem.text(newQuantity);
+      // ubdate harga
+    }
   });
   </script>
 </body>
