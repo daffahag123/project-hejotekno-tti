@@ -58,30 +58,7 @@
                 <p>Dashboard</p>
             </a>
         </li>
-          <li>  
-            <a href="./icons.html">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li>
-            <a href="./map.html">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li>
-            <a href="./notifications.html">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Notifications</p>
-            </a>
-          </li>
-          <li>
-            <a href="./user.html">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
-            </a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin')}}">
               <i class="now-ui-icons design_bullet-list-67"></i>
@@ -95,15 +72,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('typo')}}">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
+            <a class="nav-link" href="{{route('table.transaction')}}">
+              <i class="now-ui-icons design_bullet-list-67"></i>
+              <p>Table Transaction</p>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./upgrade.html">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>Upgrade to PRO</p>
+            <a class="nav-link" href="{{route('table.messages')}}">
+              <i class="now-ui-icons design_bullet-list-67"></i>
+              <p>Messages</p>
             </a>
           </li>
         </ul>

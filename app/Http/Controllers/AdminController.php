@@ -19,6 +19,14 @@ class AdminController extends Controller
         $users =  \App\Models\Customer::all();
         return view('admin.tableUser', compact('users'));
     }
+    public function tTransaction(){
+        // $users =  \App\Models\Customer::all();
+        return view('admin.tableTransaction');
+    }
+    public function tMessages(){
+        // $users =  \App\Models\Customer::all();
+        return view('admin.tableMessages');
+    }
     public function typo()
     {
         return view('admin.typography');
