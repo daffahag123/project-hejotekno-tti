@@ -65,10 +65,102 @@
       border: 1px solid #ddd;
       border-radius: 10px;
     }
+
+    /* overlay cart */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* warna hitam dengan opacity 0.5 */
+      z-index: 9998;
+      /* letakkan di bawah cart-overlay */
+      display: none;
+      /* sembunyikan secara default */
+    }
+
+    #cart-overlay {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      /* Start off-screen */
+      width: 300px;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 1);
+      z-index: 9999;
+      transition: right 0.3s ease;
+      /* Add transition for smooth sliding */
+    }
+
+    #cart-content {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      padding: 20px;
+      background-color: #fff;
+      color: #333;
+    }
+
+    #cart-content h3 {
+      margin-top: 0;
+    }
+
+    #checkout-btn {
+      display: block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    #checkout-btn:hover {
+      background-color: #555;
+    }
   </style>
 </head>
 
 <body>
+
+<!-- overlay cart -->
+<div id="cart-overlay">
+  <div id="cart-content">
+    <h3>Your Cart</h3>
+    <div class="cart-items">
+      @if ($pesanan->isEmpty())
+      <div class="empty-cart-message">
+        <h4>Keranjang masih kosong</h4>
+      </div>
+      @else
+      @foreach ($pesanan as $item)
+      <div class="cart-item">
+        <img src="{{ asset('images/products/' . $item->product->gambar) }}" alt="{{ $item->product->name }}">
+        <div class="cart-item-details">
+          <h5>{{ $item->product->nama_product }}</h5>
+          <h5>Jumlah: {{ $item->jumlah_item_dipesan }}</h5>
+          <h5>Rp {{ number_format($item->jumlah_harga, 0, ',', '.') }}</h5>
+        </div>
+      </div>
+      @endforeach
+      <div class="cart-total">
+        <p>Total: Rp {{ number_format($pesanan->sum('jumlah_harga'), 0, ',', '.') }}</p>
+      </div>
+      @endif
+    </div>
+    @if(Session::has('customer'))
+    <a href="/checkout" id="checkout-btn">Proceed to Checkout</a>
+    @else
+    <a href="/loginUser" id="checkout-btn">Login</a>
+    @endif
+  </div>
+</div>
+  <div class="overlay"></div>
+
 @include('components.header')
 
 <div class="container checkout-container">
@@ -155,6 +247,26 @@
         event.preventDefault();
       }
     });
+
+
+    // overlay cart
+    $(document).ready(function() {
+  $('.fa-shopping-bag').click(function(e) {
+    e.preventDefault();
+    $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
+    $('.overlay').fadeIn(); // Show overlay
+  });
+
+  $('.overlay').click(function(e) {
+    if (e.target === this) {
+      $('#cart-overlay, .overlay').css('right', '-300px');
+      $('.overlay').fadeOut(); // Hide overlay
+    }
+  });
+
+  $('#checkout-btn').click(function(e) {
+    window.location.href = 'checkout';
+  });
   </script>
 </body>
 
