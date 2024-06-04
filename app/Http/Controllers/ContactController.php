@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Message;
 
 use Illuminate\Http\Request;
 
@@ -13,22 +14,30 @@ class ContactController extends Controller
     {
         return view("contact");
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        // Validasi input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string',
+        ]);
+
+        // Simpan pesan ke database
+        Message::create([
+            'sender_name' => $request->input('name'),
+            'sender_email' => $request->input('email'),
+            'message' => $request->input('message'),
+            'datetime' => now(), // Gunakan Carbon untuk mendapatkan waktu saat ini
+        ]);
+
+        // Redirect dengan pesan sukses
+        return redirect()->back()->with('success', 'Pesan Anda telah berhasil dikirim!');
     }
+
 
     /**
      * Display the specified resource.

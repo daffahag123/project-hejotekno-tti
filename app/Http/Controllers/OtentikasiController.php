@@ -50,7 +50,7 @@ class OtentikasiController extends Controller
         if ($data) {
             if (Hash::check($request->password, $data->password)) {
                 // Store admin data in session
-                session(['berhasil_login' => true, 'customer' => $data, 'id_customer' => $data->id_customer]);
+                session(['berhasil_login_user' => true, 'customer' => $data, 'id_customer' => $data->id_customer]);
                 return redirect("/")->with("success", "Selamat anda berhasil Login");
             } else {
                 return redirect('/loginUser')->with('error', 'Email atau Password Salah');
