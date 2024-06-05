@@ -375,6 +375,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 alert(response.success);
+                location.reload(); 
             },
             error: function(xhr) {
                 alert('Log In to Order');
