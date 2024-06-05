@@ -12,8 +12,8 @@
     </div>
 @elseif(session('error'))
     <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
+        {{ session('error') }}
+    </div>
 @endif
 <div class="row">
     <div class="col-md-12">
@@ -63,7 +63,7 @@
                                     </button>
                                 </td>
                             </tr>
-                            @endforeach
+                        @endforeach
 
                         </tbody>
                     </table>
@@ -73,7 +73,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal for adding a product -->
 <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -116,9 +116,7 @@
                     </div>
                     <div class="form-group">
                         <label for="gambar">Gambar</label>
-                        <br>
-                        <button>
-                          Input File<input type="file" class="form-control" id="gambar" name="gambar" required></button>
+                        <input type="file" class="form-control" id="gambar" name="gambar" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -130,10 +128,8 @@
     </div>
 </div>
 
-
-<!-- Modal for update -->
+<!-- Modal for updating a product -->
 @foreach ($product as $item)
-<!-- Modal for update -->
 <div class="modal fade" id="updateProductModal{{ $item->id_product }}" tabindex="-1" role="dialog" aria-labelledby="updateProductModalLabel{{ $item->id_product }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -177,10 +173,7 @@
                     </div>
                     <div class="form-group">
                         <label for="gambar">Gambar</label>
-                        <br>
-                        <button>
-                            Input File<input type="file" class="form-control" id="gambar" name="gambar">
-                        </button>
+                        <input type="file" class="form-control" id="gambar" name="gambar">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -192,23 +185,27 @@
     </div>
 </div>
 @endforeach
-<!-- Modal for delete -->
-@foreach ($product as $item)
+
+<!-- Modal for deleting a product -->
+@foreach($product as $item)
 <div class="modal fade" id="deleteProductModal{{ $item->id_product }}" tabindex="-1" role="dialog" aria-labelledby="deleteProductModalLabel{{ $item->id_product }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-        <form action="{{ route('destroy.product', $item->id_product) }}" method="POST">
-    @csrf
-    @method('DELETE')
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteProductModalLabel{{ $item->id_product }}">Konfirmasi Hapus Produk</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteProductModalLabel{{ $item->id_product }}">Konfirmasi Hapus Produk</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{{ route('destroy.product', $item->id_product) }}">
+                @csrf
+                @method('DELETE')
                 <div class="modal-body">
+                    <p>Apakah Anda yakin ingin menghapus produk ini?</p>
+                    <p>Nama Produk: {{ $item->nama_product }}</p>
+                    <p>Deskripsi: {{ $item->deskripsi }}</p>
                     <div class="form-group">
-                        <label for="adminUsername">Email Admin</label>
+                        <label for="adminEmail">Email Admin</label>
                         <input type="email" class="form-control" id="adminEmail" name="adminEmail" required>
                     </div>
                     <div class="form-group">
@@ -228,7 +225,6 @@
 @endsection
 
 @section('scripts')
-<!-- Include Bootstrap JS if not already included -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 @endsection
