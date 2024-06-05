@@ -23,7 +23,7 @@ Route::post('/contact/message', [ContactController::class, 'store'])->name('kiri
 
 
 // Authentication routes
-Route::get('/login', [OtentikasiController::class, 'index']);
+Route::get('/admin/loginAdmin', [OtentikasiController::class, 'index']);
 Route::post('/login/auth', [OtentikasiController::class, 'login'])->name('login.auth');
 Route::get('/logout', [OtentikasiController::class, 'logout'])->name('logout');
 
@@ -46,6 +46,15 @@ Route::group(['middleware' => \App\Http\Middleware\CekLoginMiddleware::class], f
     Route::delete('/delete/produk/{id}', [OtentikasiController::class, 'deleteProduct'])->name('destroy.product');
     // Product routes
     Route::resource('product', ProductsController::class, );
+    Route::delete('/delete-transaction/{id}',[OtentikasiController::class, 'deleteTransaction'])->name('deleteTransaction');
+    Route::delete('/delete-message/{id}',[OtentikasiController::class, 'deleteMessage'])->name('deleteMessage');
+    Route::delete('/user/{id}', [OtentikasiController::class, 'deleteUser'])->name('user.delete');
+
+    Route::post('/make/user', [CustomerController::class, 'store'])->name('user.store');
+    Route::put('/update/user/{id}', [CustomerController::class, 'update'])->name('user.update');
+
+
+
 });
 
 Route::group(['middleware' => \App\Http\Middleware\CekLoginUser::class], function () {
@@ -56,4 +65,5 @@ Route::group(['middleware' => \App\Http\Middleware\CekLoginUser::class], functio
     Route::post('/addcart2', [CustomerController::class, 'addcart2'])->name('addcart2');
     Route::post('/addcart', [CustomerController::class, 'addcart'])->name('addcart');
     Route::post('/deccart', [CustomerController::class, 'deccart'])->name('deccart');
+    
 });

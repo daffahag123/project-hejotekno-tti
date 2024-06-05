@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In Admin</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 <body>
     <div id="container" class="container">
@@ -22,15 +22,13 @@
                         @csrf
                         <div class="input-group">
                             <i class='bx bxs-user'></i>
-                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="text" name="login" placeholder="Username atau Email" required>
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
                             <input type="password" name="password" placeholder="Password" required>
                         </div>
-                        <button type="submit">
-                            Sign in
-                        </button>
+                        <button type="submit">Sign in</button>
                     </form>
                 </div>
             </div>

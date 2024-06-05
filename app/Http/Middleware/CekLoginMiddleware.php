@@ -16,7 +16,7 @@ class CekLoginMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (!session('berhasil_login')) {
-            return redirect('/login')->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
+            return redirect('/admin/loginAdmin')->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
         }
 
         // Periksa apakah pengguna adalah admin
@@ -25,6 +25,6 @@ class CekLoginMiddleware
         }
 
         // Jika bukan admin, arahkan ke halaman login admin
-        return redirect('/login')->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
+        return redirect('/admin/loginAdmin')->with('error', 'Anda tidak memiliki akses ke halaman tersebut');
     }
 }

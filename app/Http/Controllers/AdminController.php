@@ -19,13 +19,42 @@ class AdminController extends Controller
         $users =  \App\Models\Customer::all();
         return view('admin.tableUser', compact('users'));
     }
-    public function tTransaction(){
-        // $users =  \App\Models\Customer::all();
-        return view('admin.tableTransaction');
+    public function tTransaction()
+    {
+
+        $transaksi = \App\Models\Transaksi::all();
+        $customers = \App\Models\Customer::all();
+        // Loop through each transaction to get the details of the orders
+        foreach ($transaksi as $trx) {
+            $pesanan_ids = explode(',', $trx->pesanan);
+
+            // Join the transaksi table with the customer table to get customer details
+            $customer = \DB::table('transaksi')
+                        ->join('customers', 'customers.id_customer', '=', 'transaksi.id_customer')
+                        ->where('transaksi.id_transaksi', '=', $trx->id_transaksi)
+                        ->select('customers.name')
+                        ->first();
+
+            // Join the pesanan table with the products table to get product details
+            $produk = \DB::table('pesanan')
+                        ->join('products', 'pesanan.id_product', '=', 'products.id_product')
+                        ->whereIn('pesanan.id_pesanan', $pesanan_ids)
+                        ->select('products.nama_product', 'pesanan.status')
+                        ->get();
+
+            // Combine product names into a string to display in the view
+            $trx->items_purchased = $produk->pluck('nama_product')->implode(', ');
+            $trx->status = $produk->pluck('status')->unique()->implode(', ');
+            $trx->customer_name = $customer->name ?? 'Unknown'; // Assuming there's only one customer per transaction
+        }
+
+        return view('admin.tableTransaction', compact('transaksi'));
     }
+
+
     public function tMessages(){
-        // $users =  \App\Models\Customer::all();
-        return view('admin.tableMessages');
+        $messages = \App\Models\Message::all();
+        return view('admin.tableMessages', compact('messages'));
     }
     public function typo()
     {

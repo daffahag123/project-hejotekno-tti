@@ -22,7 +22,7 @@
                         @csrf
                         <div class="input-group">
                             <i class='bx bxs-user'></i>
-                            <input type="text" name="email" placeholder="Email" required>
+                            <input type="text" name="login" placeholder="Username atau Email" required>
                         </div>
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>

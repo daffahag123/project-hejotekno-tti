@@ -43,6 +43,86 @@ class CustomerController extends Controller
         return redirect('/loginUser')->with('success', 'Selamat, Anda berhasil membuat akun.');
     }
 
+    public function store(Request $request)
+    {
+        // Validate input
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:customers',
+            'email' => 'required|string|email|max:255|unique:customers',
+            'password' => 'required|string|min:8|confirmed',
+            'no_telephone' => 'required|string|max:20',
+            'alamat' => 'required|string|max:255',
+        ]);
+    
+        if ($validator->fails()) {
+            $errors = $validator->errors()->all();
+            $errorMessages = implode(" ", $errors);
+            
+            return redirect()->route('table.user')
+                        ->withErrors($validator)
+                        ->withInput()
+                        ->with('error', $errorMessages);
+        }
+    
+        // Create new account
+        $customer = new Customer;
+        $customer->name = $request->name;
+        $customer->username = $request->username;
+        $customer->email = $request->email;
+        $customer->password = Hash::make($request->password);
+        $customer->no_telephone = $request->no_telephone;
+        $customer->alamat = $request->alamat;
+        $customer->save();
+    
+        return redirect()->route('table.user')->with('success', 'Selamat, Anda berhasil membuat akun.');
+    }
+    
+
+    public function update(Request $request, $id)
+    {
+        // Find the user by ID
+        $user = Customer::findOrFail($id);
+
+        // Validate input
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:customers,username,' . $user->id_customer . ',id_customer',
+            'email' => 'required|string|email|max:255|unique:customers,email,' . $user->id_customer . ',id_customer',
+            'password' => 'nullable|string|min:8|confirmed',
+            'no_telephone' => 'required|string|max:20',
+            'alamat' => 'required|string|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            $errors = $validator->errors()->all();
+            $errorMessages = implode("<br>", $errors);
+
+            return redirect()->route('table.user')
+                        ->withErrors($validator)
+                        ->withInput()
+                        ->with('error', $errorMessages);
+        }
+
+        // Update user
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->no_telephone = $request->no_telephone;
+        $user->alamat = $request->alamat;
+        $user->save();
+
+        return redirect()->route('table.user')->with('success', 'User berhasil diupdate.');
+    }
+
+
+
+
+
+
     public function addcart(Request $request)
     {
         // Retrieve the customer ID from the session
