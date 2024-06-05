@@ -313,7 +313,7 @@
             $firstParagraph = $paragraphs[0];
             @endphp
             <p class="product-description">{{ $firstParagraph }}</p>
-            <a href="#" class="add-to-cart-btn" data-product-id="{{ $product->id_product }}" data-product-price="{{ $product->harga }}">Add to Cart</a>
+            <button class="add-to-cart-btn" data-product-id="{{ $product->id_product }}" data-product-price="{{ $product->harga }}">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -384,7 +384,7 @@ $(document).ready(function() {
                 alert(response.success);
                 location.reload(); 
             },
-            error: function(xhr) {
+            error: function(response) {
                 alert('Log In to Order');
             }
         });

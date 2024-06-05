@@ -63,7 +63,7 @@ Route::group(['middleware' => \App\Http\Middleware\CekLoginUser::class], functio
     Route::get('/history', [CustomerController::class, 'history'])->name('history');
     // add cart product
     Route::post('/addcart2', [CustomerController::class, 'addcart2'])->name('addcart2');
-    Route::post('/addcart', [CustomerController::class, 'addcart'])->name('addcart');
     Route::post('/deccart', [CustomerController::class, 'deccart'])->name('deccart');
     
 });
+Route::post('/addcart', [CustomerController::class, 'addcart'])->name('addcart');
