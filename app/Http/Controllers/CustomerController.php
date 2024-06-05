@@ -93,7 +93,7 @@ class CustomerController extends Controller
         $id_customer = $request->session()->get('id_customer');
 
         if (!$id_customer) {
-            return redirect('/checkout')->with(['error' => 'Customer ID not found in session.'], 400);
+            return redirect()->back();
         }
 
         // Validate the incoming request data
@@ -115,7 +115,7 @@ class CustomerController extends Controller
             $existingPesanan->jumlah_harga += $request->input('jumlah_harga');
             $existingPesanan->save();
             
-            return redirect('/checkout')->with(['success' => 'Item quantity updated in cart successfully!']);
+            return redirect()->back();
         }
 
         // Create a new Pesanan (order) record
@@ -128,7 +128,7 @@ class CustomerController extends Controller
         $pesanan->status = 'Pending';
         $pesanan->save();
 
-        return redirect('/checkout')->with(['success' => 'Item added to cart successfully!']);
+        return redirect()->back();
     }
 
     public function deccart(Request $request)
@@ -137,7 +137,7 @@ class CustomerController extends Controller
         $id_customer = $request->session()->get('id_customer');
 
         if (!$id_customer) {
-            return redirect('/checkout')->with(['error' => 'Customer ID not found in session.'], 400);
+            return redirect()->back();
         }
 
         // Validate the incoming request data
@@ -159,15 +159,15 @@ class CustomerController extends Controller
                 $existingPesanan->jumlah_harga -= $request->input('jumlah_harga');
                 $existingPesanan->save();
                 
-                return redirect('/checkout')->with(['success' => 'Item quantity decreased in cart successfully!']);
+                return redirect()->back();
             } else {
                 // Remove the item
                 $existingPesanan->delete();
                 
-                return redirect('/checkout')->with(['success' => 'Item removed from cart successfully!']);
+                return redirect()->back();
             }
         } else {
-            return redirect('/checkout')->with(['error' => 'Item not found in cart.'], 404);
+            return redirect()->back()->with(['error' => 'Item not found in cart.'], 404);
         }
     }
 
