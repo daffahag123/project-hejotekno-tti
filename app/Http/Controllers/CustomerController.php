@@ -194,11 +194,6 @@ class CustomerController extends Controller
     public function transaksi(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'zip_code' => 'required|string|max:10',
-            'email' => 'required|email|max:255',
-            'phone' => 'required|string|max:15',
             'product_ids' => 'required|string',
             'total' => 'required|numeric'
         ]);
@@ -206,11 +201,6 @@ class CustomerController extends Controller
         // Create new transaction
         $transaksi = new Transaksi();
         $transaksi->id_customer = session()->get('id_customer');
-        $transaksi->nama = $validatedData['name'];
-        $transaksi->alamat = $validatedData['address'];
-        $transaksi->kodepos = $validatedData['zip_code'];
-        $transaksi->notelp = $validatedData['phone'];
-        $transaksi->email = $validatedData['email'];
         $transaksi->pesanan = $validatedData['product_ids'];
         $transaksi->total = $validatedData['total'];
         $transaksi->waktu_transaksi = now();

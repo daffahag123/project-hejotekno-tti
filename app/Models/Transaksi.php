@@ -19,11 +19,6 @@ class Transaksi extends Model
     // Tentukan fields yang boleh diisi (mass assignable)
     protected $fillable = [
         'id_customer',
-        'nama',
-        'alamat',
-        'kodepos',
-        'notelp',
-        'email',
         'pesanan',
         'total',
         'waktu_transaksi',
