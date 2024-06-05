@@ -163,10 +163,21 @@
           <h5>Jumlah: {{ $item->jumlah_item_dipesan }}</h5>
           <h5>Rp {{ number_format($item->jumlah_harga, 0, ',', '.') }}</h5>
           <div class="quantity-control">
-            <button class="decrement-btn" data-id="{{ $item->id }}">-</button>
-            <span>{{ $item->jumlah_item_dipesan }}</span>
-            <button class="increment-btn" data-id="{{ $item->id }}">+</button>
-          </div>
+                <form method="POST" action="{{ route('deccart') }}" class="decrement-form">
+                    @csrf
+                    <input type="hidden" name="id_product" value="{{ $item->id_product }}">
+                    <input type="hidden" name="jumlah_harga" value="{{ $item->jumlah_harga / $item->jumlah_item_dipesan }}">
+                    <button type="submit" class="decrement-btn">-</button>
+                  </form>
+                  <span class="jumlah-item">{{ $item->jumlah_item_dipesan }}</span>
+                  <form method="POST" action="{{ route('addcart2') }}" class="increment-form">
+                    @csrf
+                    <input type="hidden" name="id_product" value="{{ $item->id_product }}">
+                    <input type="hidden" name="jumlah_item_dipesan" value="1">
+                    <input type="hidden" name="jumlah_harga" value="{{ $item->jumlah_harga / $item->jumlah_item_dipesan }}">
+                    <button type="submit" class="increment-btn">+</button>
+                  </form>
+                </div>
         </div>
       </div>
       @endforeach
@@ -237,15 +248,25 @@
               <div class="cart-item-details">
                 <h5>{{ $item->product->nama_product }}</h5>
                 <p>{{ $item->product->deskripsi_nama }}</p>
-                <!-- <p>Jumlah: {{ $item->jumlah_item_dipesan }}</p> -->
               </div>
               <div class="cart-item-price">Rp {{ number_format($item->jumlah_harga, 0, ',', '.') }}
               <br><br>
                 <div class="quantity-control">
-                    <button class="decrement-btn" data-id="{{ $item->id }}">-</button>
-                    <span>{{ $item->jumlah_item_dipesan }}</span>
-                    <button class="increment-btn" data-id="{{ $item->id }}">+</button>
-                  </div>
+                <form method="POST" action="{{ route('deccart') }}" class="decrement-form">
+                    @csrf
+                    <input type="hidden" name="id_product" value="{{ $item->id_product }}">
+                    <input type="hidden" name="jumlah_harga" value="{{ $item->jumlah_harga / $item->jumlah_item_dipesan }}">
+                    <button type="submit" class="decrement-btn">-</button>
+                  </form>
+                  <span class="jumlah-item">{{ $item->jumlah_item_dipesan }}</span>
+                  <form method="POST" action="{{ route('addcart2') }}" class="increment-form">
+                    @csrf
+                    <input type="hidden" name="id_product" value="{{ $item->id_product }}">
+                    <input type="hidden" name="jumlah_item_dipesan" value="1">
+                    <input type="hidden" name="jumlah_harga" value="{{ $item->jumlah_harga / $item->jumlah_item_dipesan }}">
+                    <button type="submit" class="increment-btn">+</button>
+                  </form>
+                </div>
               </div>
 
             </div>
@@ -282,43 +303,23 @@
 
     // overlay cart
     $(document).ready(function() {
-  $('.fa-shopping-bag').click(function(e) {
-    e.preventDefault();
-    $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
-    $('.overlay').fadeIn(); // Show overlay
-  });
+      $('.fa-shopping-bag').click(function(e) {
+        e.preventDefault();
+        $('#cart-overlay, .overlay').css('right', '0'); // Slide in from the right
+        $('.overlay').fadeIn(); // Show overlay
+      });
 
-  $('.overlay').click(function(e) {
-    if (e.target === this) {
-      $('#cart-overlay, .overlay').css('right', '-300px');
-      $('.overlay').fadeOut(); // Hide overlay
-    }
-  });
+      $('.overlay').click(function(e) {
+        if (e.target === this) {
+          $('#cart-overlay, .overlay').css('right', '-300px');
+          $('.overlay').fadeOut(); // Hide overlay
+        }
+      });
 
-  $('#checkout-btn').click(function(e) {
-    window.location.href = 'checkout';
-  });
-
-  // quantity
-  // tambah
-  $(document).on('click', '.increment-btn', function() {
-    var itemId = $(this).data('id');
-    var quantityElem = $(this).siblings('span');
-    var newQuantity = parseInt(quantityElem.text()) + 1;
-    quantityElem.text(newQuantity);
-    // ubdate harga
-  });
-
-  // kurang
-  $(document).on('click', '.decrement-btn', function() {
-    var itemId = $(this).data('id');
-    var quantityElem = $(this).siblings('span');
-    var newQuantity = parseInt(quantityElem.text()) - 1;
-    if (newQuantity > 0) {
-      quantityElem.text(newQuantity);
-      // ubdate harga
-    }
-  });
+      $('#checkout-btn').click(function(e) {
+        window.location.href = 'checkout';
+      });
+    });
   </script>
 </body>
 

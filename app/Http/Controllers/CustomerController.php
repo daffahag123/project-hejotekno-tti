@@ -87,6 +87,91 @@ class CustomerController extends Controller
         return response()->json(['success' => 'Item added to cart successfully!']);
     }
 
+    public function addcart2(Request $request)
+    {
+        // Retrieve the customer ID from the session
+        $id_customer = $request->session()->get('id_customer');
+
+        if (!$id_customer) {
+            return redirect('/checkout')->with(['error' => 'Customer ID not found in session.'], 400);
+        }
+
+        // Validate the incoming request data
+        $request->validate([
+            'id_product' => 'required|integer|exists:products,id_product',
+            'jumlah_item_dipesan' => 'required|integer|min:1',
+            'jumlah_harga' => 'required|numeric|min:0',
+        ]);
+
+        // Check if there is an existing order for the same product with a 'Pending' status
+        $existingPesanan = Pesanan::where('id_customer', $id_customer)
+                                   ->where('id_product', $request->input('id_product'))
+                                   ->where('status', 'Pending')
+                                   ->first();
+
+        if ($existingPesanan) {
+            // Update the existing order
+            $existingPesanan->jumlah_item_dipesan += $request->input('jumlah_item_dipesan');
+            $existingPesanan->jumlah_harga += $request->input('jumlah_harga');
+            $existingPesanan->save();
+            
+            return redirect('/checkout')->with(['success' => 'Item quantity updated in cart successfully!']);
+        }
+
+        // Create a new Pesanan (order) record
+        $pesanan = new Pesanan();
+        $pesanan->id_customer = $id_customer;
+        $pesanan->id_product = $request->input('id_product');
+        $pesanan->jumlah_item_dipesan = $request->input('jumlah_item_dipesan');
+        $pesanan->jumlah_harga = $request->input('jumlah_harga');
+        $pesanan->tanggal_pesananan_dibuat = now();
+        $pesanan->status = 'Pending';
+        $pesanan->save();
+
+        return redirect('/checkout')->with(['success' => 'Item added to cart successfully!']);
+    }
+
+    public function deccart(Request $request)
+    {
+        // Retrieve the customer ID from the session
+        $id_customer = $request->session()->get('id_customer');
+
+        if (!$id_customer) {
+            return redirect('/checkout')->with(['error' => 'Customer ID not found in session.'], 400);
+        }
+
+        // Validate the incoming request data
+        $request->validate([
+            'id_product' => 'required|integer|exists:products,id_product',
+            'jumlah_harga' => 'required|numeric|min:0',
+        ]);
+
+        // Check if there is an existing order for the same product with a 'Pending' status
+        $existingPesanan = Pesanan::where('id_customer', $id_customer)
+                                ->where('id_product', $request->input('id_product'))
+                                ->where('status', 'Pending')
+                                ->first();
+
+        if ($existingPesanan) {
+            if ($existingPesanan->jumlah_item_dipesan > 1) {
+                // Reduce the quantity
+                $existingPesanan->jumlah_item_dipesan -= 1;
+                $existingPesanan->jumlah_harga -= $request->input('jumlah_harga');
+                $existingPesanan->save();
+                
+                return redirect('/checkout')->with(['success' => 'Item quantity decreased in cart successfully!']);
+            } else {
+                // Remove the item
+                $existingPesanan->delete();
+                
+                return redirect('/checkout')->with(['success' => 'Item removed from cart successfully!']);
+            }
+        } else {
+            return redirect('/checkout')->with(['error' => 'Item not found in cart.'], 404);
+        }
+    }
+
+
     public function checkout()
     {
         // Ambil ID customer dari session
