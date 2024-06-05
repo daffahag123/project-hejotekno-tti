@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
 
 class ProgramController extends Controller
@@ -12,7 +13,18 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        return view("program");
+        $id_customer = session()->get('id_customer');
+
+        if (!$id_customer) {
+            return view("program");
+        }else{
+            // Ambil data pesanan dengan status pending sesuai ID customer
+            $pesanan = Pesanan::where('id_customer', $id_customer)
+                            ->where('status', 'Pending')
+                            ->with('product') // Eager load the related product
+                            ->get();
+            return view("program", compact("pesanan"));
+        }
     }
 
     /**

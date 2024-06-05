@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -13,15 +14,38 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products', compact('products'));
-        // dd($products); // Tambahkan ini untuk debugging
+        $id_customer = session()->get('id_customer');
+
+        if (!$id_customer) {
+            return view('products', compact('products'));
+        } else {
+            // Ambil data pesanan dengan status pending sesuai ID customer
+            $pesanan = Pesanan::where('id_customer', $id_customer)
+                            ->where('status', 'Pending')
+                            ->with('product') // Eager load the related product
+                            ->get();
+            return view('products', compact('products', 'pesanan'));
+        }
+
     }
 
     public function detail($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
-        return view("product_detail", compact('product'));
-        // dd($product);
+        // return view("product_detail", compact('product'));
+        $id_customer = session()->get('id_customer');
+
+        if (!$id_customer) {
+            return view('product_detail', compact('product'));
+        } else {
+            // Ambil data pesanan dengan status pending sesuai ID customer
+            $pesanan = Pesanan::where('id_customer', $id_customer)
+                            ->where('status', 'Pending')
+                            ->with('product') // Eager load the related product
+                            ->get();
+            return view('product_detail', compact('product', 'pesanan'));
+        }
+
         
     }
     

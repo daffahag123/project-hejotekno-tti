@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pesanan;
 
 class HomeController extends Controller
 {
@@ -11,7 +12,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view("home"); 
+        // Ambil ID customer dari session
+        $id_customer = session()->get('id_customer');
+
+        if (!$id_customer) {
+            return view("home");
+        }else{
+            // Ambil data pesanan dengan status pending sesuai ID customer
+            $pesanan = Pesanan::where('id_customer', $id_customer)
+                            ->where('status', 'Pending')
+                            ->with('product') // Eager load the related product
+                            ->get();
+            return view("home", compact("pesanan"));
+        }
     }
 
     /**

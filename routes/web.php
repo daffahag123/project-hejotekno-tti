@@ -18,6 +18,7 @@ Route::get('/products', [ProductsController::class, 'index']);
 Route::get('/product_detail/{slug}', [ProductsController::class, 'detail']);
 Route::get('/program', [ProgramController::class, 'index']);
 Route::get('/contact', [ContactController::class, 'index']);
+Route::post('/contact/message', [ContactController::class, 'store'])->name('kirim.pesan');
 
 
 
@@ -33,17 +34,26 @@ Route::post('/Auth/User', [OtentikasiController::class, 'login2'])->name('auth.u
 Route::get('/logoutUser', [OtentikasiController::class, 'logout2'])->name('logout.user');
 Route::get('/signup', [OtentikasiController::class, 'showSignupForm'])->name('showSignupForm');
 Route::post('/signup', [CustomerController::class, 'signup'])->name('signup');
-Route::get('/checkout', [CustomerController::class, 'checkout'])->name('checkout');
 
-// add cart product
-Route::post('/addcart', [CustomerController::class, 'addcart'])->name('addcart');
        
 // Admin routes with middleware
 Route::group(['middleware' => \App\Http\Middleware\CekLoginMiddleware::class], function () {
     Route::get('/dashboard/table', [AdminController::class, 'index'])->name('admin');
     Route::get('/dashboard/tUser', [AdminController::class, 'tUser'])->name('table.user');
+    Route::get('/dashboard/tTransaction', [AdminController::class, 'tTransaction'])->name('table.transaction');
+    Route::get('/dashboard/tMessages', [AdminController::class, 'tMessages'])->name('table.messages');
     Route::get('/dashboard/typography', [AdminController::class, 'typo'])->name('typo');
     Route::delete('/delete/produk/{id}', [OtentikasiController::class, 'deleteProduct'])->name('destroy.product');
     // Product routes
     Route::resource('product', ProductsController::class, );
+});
+
+Route::group(['middleware' => \App\Http\Middleware\CekLoginUser::class], function () {
+    Route::get('/checkout', [CustomerController::class, 'checkout'])->name('checkout');
+    Route::post('/transaksi', [CustomerController::class, 'transaksi'])->name('customer.transaksi');
+    Route::get('/history', [CustomerController::class, 'history'])->name('history');
+    // add cart product
+    Route::post('/addcart2', [CustomerController::class, 'addcart2'])->name('addcart2');
+    Route::post('/addcart', [CustomerController::class, 'addcart'])->name('addcart');
+    Route::post('/deccart', [CustomerController::class, 'deccart'])->name('deccart');
 });

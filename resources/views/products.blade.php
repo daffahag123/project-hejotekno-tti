@@ -22,25 +22,81 @@
   <![endif]-->
   <!-- overlay cart -->
   <style>
-    .overlay {
+         .checkout-container {
+      padding: 50px 0;
+    }
+
+    .form-section {
+      background-color: #f9f9f9;
+      padding: 30px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    .cart-section {
+      background-color: #fff;
+      padding: 30px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .cart-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+    }
+
+    .cart-item-details {
+      flex-grow: 1;
+      margin-left: 15px;
+    }
+
+    .cart-item-price {
+      font-weight: bold;
+    }
+
+    .empty-cart-message {
+      text-align: center;
+      padding: 50px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+    
+  .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* warna hitam dengan opacity 0.5 */
-      z-index: 9998; /* letakkan di bawah cart-overlay */
-      display: none; /* sembunyikan secara default */
+      background-color: rgba(0, 0, 0, 0.5);
+      /* warna hitam dengan opacity 0.5 */
+      z-index: 9998;
+      /* letakkan di bawah cart-overlay */
+      display: none;
+      /* sembunyikan secara default */
     }
+
     #cart-overlay {
       position: fixed;
       top: 0;
-      right: -300px; /* Start off-screen */
+      right: -300px;
+      /* Start off-screen */
       width: 300px;
       height: 100%;
       background-color: rgba(255, 255, 255, 1);
       z-index: 9999;
-      transition: right 0.3s ease; /* Add transition for smooth sliding */
+      transition: right 0.3s ease;
+      /* Add transition for smooth sliding */
     }
 
     #cart-content {
@@ -61,7 +117,7 @@
     #checkout-btn {
       display: block;
       margin-top: 20px;
-      padding: 10px 0px;
+      padding: 10px 20px;
       background-color: #333;
       color: #fff;
       text-align: center;
@@ -71,6 +127,24 @@
     #checkout-btn:hover {
       background-color: #555;
     }
+
+    /* quantity */
+    .quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control button {
+  background-color: #ddd;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.quantity-control span {
+  margin: 0 10px;
+}
+
 
      /* untuk katalog */
      #catalog {
@@ -126,15 +200,54 @@
 
 </head>
 <body>
-  <div id="cart-overlay">
-    <div id="cart-content">
-      <h3>Your Cart</h3>
-      <div class="cart-items">
-        <!-- Isi dengan konten keranjang belanja -->
+<!-- overlay cart -->
+<div id="cart-overlay">
+  <div id="cart-content">
+    <h3>Your Cart</h3>
+    <div class="cart-items">
+      @if ($pesanan->isEmpty())
+      <div class="empty-cart-message">
+        <h4>Keranjang masih kosong</h4>
       </div>
-      <a href="#" id="checkout-btn">Proceed to Checkout</a>
+      @else
+      @foreach ($pesanan as $item)
+      <div class="cart-item">
+        <img src="{{ asset('images/products/' . $item->product->gambar) }}" alt="{{ $item->product->name }}">
+        <div class="cart-item-details">
+          <h5>{{ $item->product->nama_product }}</h5>
+          <h5>Jumlah: {{ $item->jumlah_item_dipesan }}</h5>
+          <h5>Rp {{ number_format($item->jumlah_harga, 0, ',', '.') }}</h5>
+          <div class="quantity-control">
+                <form method="POST" action="{{ route('deccart') }}" class="decrement-form">
+                    @csrf
+                    <input type="hidden" name="id_product" value="{{ $item->id_product }}">
+                    <input type="hidden" name="jumlah_harga" value="{{ $item->jumlah_harga / $item->jumlah_item_dipesan }}">
+                    <button type="submit" class="decrement-btn">-</button>
+                  </form>
+                  <span class="jumlah-item">{{ $item->jumlah_item_dipesan }}</span>
+                  <form method="POST" action="{{ route('addcart2') }}" class="increment-form">
+                    @csrf
+                    <input type="hidden" name="id_product" value="{{ $item->id_product }}">
+                    <input type="hidden" name="jumlah_item_dipesan" value="1">
+                    <input type="hidden" name="jumlah_harga" value="{{ $item->jumlah_harga / $item->jumlah_item_dipesan }}">
+                    <button type="submit" class="increment-btn">+</button>
+                  </form>
+                </div>
+        </div>
+      </div>
+      @endforeach
+      <div class="cart-total">
+        <p>Total: Rp {{ number_format($pesanan->sum('jumlah_harga'), 0, ',', '.') }}</p>
+      </div>
+      @endif
     </div>
+    @if(Session::has('customer'))
+    <a href="/checkout" id="checkout-btn">Proceed to Checkout</a>
+    @else
+    <a href="/loginUser" id="checkout-btn">Login</a>
+    @endif
   </div>
+</div>
   <div class="overlay"></div>
 
   @include('components.header')

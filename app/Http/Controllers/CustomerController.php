@@ -251,7 +251,18 @@ class CustomerController extends Controller
         }
 
         // Return view checkout dengan data transaksi yang telah diupdate
-        return view('history', compact('transaksi'));
+        $id_customer = session()->get('id_customer');
+
+        if (!$id_customer) {
+            return view("history");
+        }else{
+            // Ambil data pesanan dengan status pending sesuai ID customer
+            $pesanan = Pesanan::where('id_customer', $id_customer)
+                            ->where('status', 'Pending')
+                            ->with('product') // Eager load the related product
+                            ->get();
+            return view("history", compact("pesanan", 'transaksi'));
+        }
     }
 
 }
