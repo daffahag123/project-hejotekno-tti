@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Admin;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 
@@ -26,13 +23,13 @@ class AdminController extends Controller
     {
 
         $transaksi = \App\Models\Transaksi::all();
-        $admins = \App\Models\Customer::all();
+        $customers = \App\Models\Customer::all();
         // Loop through each transaction to get the details of the orders
         foreach ($transaksi as $trx) {
             $pesanan_ids = explode(',', $trx->pesanan);
 
             // Join the transaksi table with the customer table to get customer details
-            $admin = \DB::table('transaksi')
+            $customer = \DB::table('transaksi')
                         ->join('customers', 'customers.id_customer', '=', 'transaksi.id_customer')
                         ->where('transaksi.id_transaksi', '=', $trx->id_transaksi)
                         ->select('customers.name')
@@ -48,7 +45,7 @@ class AdminController extends Controller
             // Combine product names into a string to display in the view
             $trx->items_purchased = $produk->pluck('nama_product')->implode(', ');
             $trx->status = $produk->pluck('status')->unique()->implode(', ');
-            $trx->customer_name = $admin->name ?? 'Unknown'; // Assuming there's only one customer per transaction
+            $trx->customer_name = $customer->name ?? 'Unknown'; // Assuming there's only one customer per transaction
         }
 
         return view('admin.tableTransaction', compact('transaksi'));
@@ -64,39 +61,20 @@ class AdminController extends Controller
         return view('admin.typography');
     }
 
-    public function signupadmin()
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        return view('admin.signadmin');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function signup(Request $request)
+    public function store(Request $request)
     {
-        // Validate input
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:customers',
-            'email' => 'required|string|email|max:255|unique:customers',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('/admin/signup-regis')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
-
-        // Create new account
-        $admin = new Admin();
-        $admin->name = $request->name;
-        $admin->username = $request->username;
-        $admin->email = $request->email;
-        $admin->password = Hash::make($request->password);
-        $admin->save();
-
-        return redirect('/admin/loginAdmin')->with('success', 'Selamat, Anda berhasil membuat akun.');
+        //
     }
 
     /**
