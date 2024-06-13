@@ -273,10 +273,25 @@ class CustomerController extends Controller
 
     public function transaksi(Request $request)
     {
+        // Validasi data input
         $validatedData = $request->validate([
             'product_ids' => 'required|string',
-            'total' => 'required|numeric'
+            'total' => 'required|numeric',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'phone' => 'required|string|max:20',
+            'address' => 'required|string|max:500',
         ]);
+
+        // Update data customer
+        $customer = Customer::find(session()->get('id_customer'));
+        if ($customer) {
+            $customer->name = $validatedData['name'];
+            $customer->email = $validatedData['email'];
+            $customer->no_telephone = $validatedData['phone'];
+            $customer->alamat = $validatedData['address'];
+            $customer->save();
+        }
 
         // Create new transaction
         $transaksi = new Transaksi();
@@ -286,13 +301,14 @@ class CustomerController extends Controller
         $transaksi->waktu_transaksi = now();
         $transaksi->save();
 
-        // Update the status of the orders (pesanan) to 'onptocess
+        // Update the status of the orders (pesanan) to 'OnProcess'
         Pesanan::where('id_customer', $transaksi->id_customer)
             ->where('status', 'Pending')
             ->update(['status' => 'OnProcess']);
 
-        return redirect('/')->with('success', 'Transaksi berhasil disimpan!');
+        return redirect('/')->with('success', 'Transaksi Anda telah berhasil disimpan dengan sukses! \nTerima kasih atas kepercayaan Anda. Kami akan segera menghubungi Anda untuk konfirmasi dan informasi lebih lanjut.');
     }
+
 
     public function history()
     {

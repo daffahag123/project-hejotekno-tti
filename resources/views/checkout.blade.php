@@ -214,19 +214,19 @@
               @csrf
               <div class="form-group">
                   <label for="name">Nama Lengkap *</label>
-                  <input type="text" id="name" name="name" class="form-control" value="{{ session('customer')->name ?? '' }}" placeholder="Nama Lengkap" required readonly>
+                  <input type="text" id="name" name="name" class="form-control" value="{{ session('customer')->name ?? '' }}" placeholder="Nama Lengkap" required>
               </div>
               <div class="form-group">
                   <label for="email">Email *</label>
-                  <input type="email" id="email" name="email" class="form-control" value="{{ session('customer')->email ?? '' }}" placeholder="Email" required readonly>
+                  <input type="email" id="email" name="email" class="form-control" value="{{ session('customer')->email ?? '' }}" placeholder="Email" required>
               </div>
               <div class="form-group">
                   <label for="phone">No. Telp *</label>
-                  <input type="text" id="phone" name="phone" class="form-control" value="{{ session('customer')->no_telephone ?? '' }}" placeholder="No. Telp" required readonly>
+                  <input type="text" id="phone" name="phone" class="form-control" value="{{ session('customer')->no_telephone ?? '' }}" placeholder="No. Telp" required>
               </div>
               <div class="form-group">
                   <label for="address">Alamat Lengkap *</label>
-                  <textarea id="address" name="address" class="form-control" rows="4" placeholder="Alamat Lengkap" required readonly>{{ session('customer')->alamat ?? '' }}</textarea>
+                  <textarea id="address" name="address" class="form-control" rows="4" placeholder="Alamat Lengkap" required>{{ session('customer')->alamat ?? '' }}</textarea>
               </div>
               <input type="hidden" name="product_ids" value="{{ $pesanan->pluck('id_pesanan')->implode(',') }}">
               <input type="hidden" name="total" value="{{ $pesanan->sum('jumlah_harga') }}">
@@ -327,5 +327,5 @@
   </script>
 </body>
 
-
 </html>
+

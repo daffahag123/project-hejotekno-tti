@@ -50,6 +50,7 @@ Route::group(['middleware' => \App\Http\Middleware\CekLoginMiddleware::class], f
     Route::delete('/delete-message/{id}',[OtentikasiController::class, 'deleteMessage'])->name('deleteMessage');
     Route::delete('/user/{id}', [OtentikasiController::class, 'deleteUser'])->name('user.delete');
 
+    Route::put('/updateTransaction/{id}', [AdminController::class, 'updateTransaction'])->name('updateTransaction');
     Route::post('/make/user', [CustomerController::class, 'store'])->name('user.store');
     Route::put('/update/user/{id}', [CustomerController::class, 'update'])->name('user.update');
 

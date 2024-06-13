@@ -51,6 +51,31 @@ class AdminController extends Controller
         return view('admin.tableTransaction', compact('transaksi'));
     }
 
+    public function updateTransaction(Request $request, $id)
+    {
+        // Validasi input dari form
+        $request->validate([
+            'invoice' => 'required|string',
+            'status' => 'required|string|in:Pending,Dibayar,Dikirim,Selesai,Dibatalkan,OnProcess',
+        ]);
+
+        // Temukan transaksi berdasarkan id
+        $transaksi = \App\Models\Transaksi::findOrFail($id);
+
+        // Perbarui transaksi.pdf (invoice)
+        $transaksi->pdf = $request->input('invoice');
+        $transaksi->save();
+
+        // Perbarui status pesanan yang terkait dengan transaksi
+        $pesanan_ids = explode(',', $transaksi->pesanan);
+        \DB::table('pesanan')
+            ->whereIn('id_pesanan', $pesanan_ids)
+            ->update(['status' => $request->input('status')]);
+
+        return redirect()->route('table.transaction')->with('success', 'Transaction updated successfully.');
+    }
+
+
 
     public function tMessages(){
         $messages = \App\Models\Message::all();
@@ -64,9 +89,8 @@ class AdminController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
+    public function updatetransaksi(){
+        
     }
 
     /**
