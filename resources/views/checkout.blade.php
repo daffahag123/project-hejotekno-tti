@@ -323,6 +323,12 @@
       $('#checkout-btn').click(function(e) {
         window.location.href = 'checkout';
       });
+      
+      $('#checkout-form').submit(function (e) {
+        e.preventDefault();
+        alert("Pesanan Anda akan segera dikonfirmasi dan akan dihubungi lebih lanjut melalui email");
+        this.submit();
+      });
     });
   </script>
 </body>
